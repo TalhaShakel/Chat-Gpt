@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spoot_light/Constants/ColorConstants.dart';
 
 class CustomizedButton extends StatelessWidget {
   String? buttonName;
@@ -36,10 +37,10 @@ class CustomizedButton extends StatelessWidget {
             fontSize: 17.sp),
       ),
       style: ElevatedButton.styleFrom(
-        // side: BorderSide(width: 2, color: Colors.black),
+        side: BorderSide(width: 1, color: Colors.white),
         primary: colorButton,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(69.0),
         ),
       ),
     );

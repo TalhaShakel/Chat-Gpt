@@ -40,11 +40,11 @@ dependencies:
   velocity_x: ^3.6.0
   flutter_screenutil: ^5.6.0
   flutter_easyloading: ^3.0.5
-  firebase_core: ^2.4.0
-  firebase_auth: ^4.2.0
-  cloud_firestore: ^4.2.0
+  # firebase_core: ^2.4.0
+  # firebase_auth: ^4.2.0
+  # cloud_firestore: ^4.2.0
   image_picker: ^0.8.6
-  firebase_storage: ^11.0.7
+  # firebase_storage: ^11.0.7
   font_awesome_flutter: ^10.3.0
   introduction_screen: ^3.1.1
 
