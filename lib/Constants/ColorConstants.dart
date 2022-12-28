@@ -7,6 +7,8 @@ class ColorConstants {
   static Color ButtonColor = hexToColor("#0DBC53");
   static Color BackBColor = hexToColor("#525252");
   static Color CategoriesColor = hexToColor("#888cef;").withOpacity(0.1);
+  static Color aiBGcolor1 = Color.fromARGB(255, 108, 173, 185);
+  static Color aiBGcolor2 = Color.fromARGB(255, 31, 51, 59);
   static Color starColor = hexToColor("#FE543D");
   // static Color GuesttxtColor = hexToColor("#615D5D");
 
