@@ -9,6 +9,7 @@ class ColorConstants {
   static Color textfieldColor = hexToColor("#FCF7F8");
   static Color aiBGcolor1 = Color.fromARGB(255, 108, 173, 185);
   static Color aiBGcolor2 = Color.fromARGB(255, 31, 51, 59);
+  static Color Lbutton = Color.fromARGB(0xffdaedf6,0xffe9dce5, 0xffFf2d3db, 0xfffde4c2);
   static Color starColor = hexToColor("#FE543D");
   // static Color GuesttxtColor = hexToColor("#615D5D");
 
