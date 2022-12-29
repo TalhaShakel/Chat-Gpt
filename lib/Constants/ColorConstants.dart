@@ -9,7 +9,7 @@ class ColorConstants {
   static Color textfieldColor = hexToColor("#FCF7F8");
   static Color aiBGcolor1 = Color.fromARGB(255, 108, 173, 185);
   static Color aiBGcolor2 = Color.fromARGB(255, 31, 51, 59);
-  static var btnColor = [
+  static List<Color> btnColor = [
     hexToColor("#D8EEF9"),
     hexToColor("#F2D5DD"),
     hexToColor("#FEE7BC"),

@@ -193,16 +193,11 @@ class LoginScreen extends StatelessWidget {
                     height: 50.h,
                     width: 359.w,
                     decoration: BoxDecoration(
-                      color: ColorConstants.Lbutton,
-                        // gradient: LinearGradient(
-                        //   begin: Alignment.center,
-                        //   end: Alignment.bottomCenter,
-                        //   colors: <Color>[
-                        //     ColorConstants.aiBGcolor1,
-                        //     ColorConstants.aiBGcolor2,
-                        //     // Color.fromRGBO(115, 186, 197, 1)
-                        //   ],
-                        // ),
+                        color: ColorConstants.Lbutton,
+                        gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: ColorConstants.btnColor),
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
                       child: "SIGN IN"
