@@ -4,41 +4,33 @@ class UserModel {
   String? userPassword;
   String? userName;
   String? userAge;
-  String? userOccupation;
-  String? userLocation;
+  String? userBirthday;
+  String? userLanguage;
+  String? userGender;
   String? userPicture;
-  String? gender;
-  String? tableNumber;
-  String? event;
-  String? guestNumber;
 
-  UserModel(
-      {this.uid,
-      this.userEmail,
-      this.userPassword,
-      this.userName,
-      this.userAge,
-      this.userOccupation,
-      this.userLocation,
-      this.userPicture,
-      this.gender,
-      this.event,
-      this.tableNumber,
-      this.guestNumber});
+  UserModel({
+    this.uid,
+    this.userEmail,
+    this.userPassword,
+    this.userName,
+    this.userAge,
+    this.userBirthday,
+    this.userLanguage,
+    this.userGender,
+    this.userPicture,
+  });
 
   UserModel.fromMap(map) {
-    gender = map["gender"];
+    userGender = map["userGender"];
     userEmail = map["userEmail"];
     uid = map["uid"];
     userPassword = map["userPassword"];
     userName = map["userName"];
     userAge = map["userAge"];
-    userOccupation = map["userOccupation"];
-    userLocation = map["userLocation"];
+    userBirthday = map["userBirthday"];
+    userLanguage = map["userLanguage"];
     userPicture = map["userPicture"];
-    tableNumber = map["tableNumber"];
-    guestNumber = map["guestNumber"];
-    event = map["event"];
   }
   Map<String, dynamic> toMap() {
     return {
@@ -47,13 +39,10 @@ class UserModel {
       "userEmail": userEmail,
       "userPassword": userPassword,
       "userAge": userAge,
-      "userOccupation": userOccupation,
-      "userLocation": userLocation,
+      "userBirthday": userBirthday,
+      "userLanguage": userLanguage,
       "userPicture": userPicture,
-      "gender": gender,
-      "event": event,
-      "tableNumber": tableNumber,
-      "guestNumber": guestNumber,
+      "userGender": userGender,
     };
   }
 }

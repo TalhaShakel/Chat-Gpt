@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainController extends GetxController {
+  /////////// Male & Female ////////////////
+  
+  var gender = "";
+  isselect(select) {
+    gender = select;
+    refresh();
+  }
+
   @override
   Timer? _timer;
   int remainSeconds = 1;
@@ -62,12 +70,6 @@ class MainController extends GetxController {
   var number = "";
   isSelectNum(num) {
     number = num;
-    refresh();
-  }
-
-  var event = "";
-  isselect(select) {
-    event = select;
     refresh();
   }
 }

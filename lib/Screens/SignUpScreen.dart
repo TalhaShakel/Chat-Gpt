@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,13 +9,11 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Constants/customized_textformfield.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Models/UserModels.dart';
-import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
-import 'package:spoot_light/Screens/AboutUserInfoScreen.dart';
-import 'package:spoot_light/Screens/SignUpScreen.dart';
+import 'package:spoot_light/Screens/LoginScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
@@ -27,13 +27,14 @@ class LoginScreen extends StatelessWidget {
 
   bool value = false;
 
-  signIn() async {
+  registration() async {
+    // FirebaseAuth auth = FirebaseAuth.instance;
     if (_emailController.text == "" || _passwordController == "") {
       Get.snackbar("Please Fill this fields ", "");
     } else {
       try {
         EasyLoading.show();
-        UserCredential credential = await fAuth.signInWithEmailAndPassword(
+        UserCredential credential = await fAuth.createUserWithEmailAndPassword(
             email: _emailController.text.trim().toString(),
             password: _passwordController.text.trim().toString());
         UserModel newUser = UserModel(
@@ -41,16 +42,9 @@ class LoginScreen extends StatelessWidget {
           userPassword: _passwordController.text.trim().toString(),
           userEmail: _emailController.text.trim().toString(),
         );
-        var document = await firestore_get(
-          "user",
-          credential.user!.uid,
-        );
-        UserModel userdata =
-            UserModel.fromMap(document.data() as Map<String, dynamic>);
-        currentUserData = userdata;
-        Get.to(() => AboutUserInfo());
-        //////////////////////////////////
-
+        EasyLoading.dismiss();
+        Get.to(() => LoginScreen());
+        await firestore_set("user", credential.user?.uid, newUser.toMap());
         EasyLoading.dismiss();
       } on FirebaseAuthException catch (e) {
         EasyLoading.dismiss();
@@ -73,7 +67,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 50.h.heightBox,
                 Center(
-                    child: "Sign In"
+                    child: "Sign Up"
                         .text
                         .size(28.sp)
                         .fontWeight(FontWeight.w600)
@@ -117,57 +111,9 @@ class LoginScreen extends StatelessWidget {
                 CustomizedTextFormfield(
                   myController: _passwordController,
                   isPassword: true,
-                  hintText: ". . . . . .",
+                  hintText: ". . . . . . . .",
                 ),
-                15.h.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        value = !value;
-                      },
-                      child: Container(
-                          height: 17.h,
-                          width: 17.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(
-                                width: 2,
-                                color: Color(0xffF2D5DD),
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(6))),
-                          child: value
-                              ? Icon(
-                                  Icons.check,
-                                  size: 15.0,
-                                  color: Color(0xffF2D5DD),
-                                )
-                              : Icon(
-                                  Icons.check,
-                                  size: 15.0,
-                                  color: Color(0xffF2D5DD),
-                                )),
-                    ),
-                    9.w.widthBox,
-                    Expanded(
-                      child: "I agree to the User Agreement and Privacy Policy"
-                          .text
-                          .softWrap(true)
-                          .size(12.sp)
-                          .make(),
-                    ),
-                    29.w.widthBox,
-                    "Forgot password?"
-                        .text
-                        .softWrap(true)
-                        .fontWeight(FontWeight.w500)
-                        .size(14.sp)
-                        .make(),
-                  ],
-                ),
-                44.h.heightBox,
+                67.h.heightBox,
                 Center(
                   child: "Or sign in with"
                       .text
@@ -187,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                 55.h.heightBox,
                 GestureDetector(
                   onTap: () async {
-                    await signIn();
+                    await registration();
                   },
                   child: Container(
                     height: 50.h,
@@ -204,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
-                      child: "SIGN IN"
+                      child: "SIGN UP"
                           .text
                           .size(13.sp)
                           .fontWeight(FontWeight.w800)
@@ -212,11 +158,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                32.h.heightBox,
+                22.h.heightBox,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    "Don’t have an account yet?"
+                    "Already have an account?"
                         .text
                         .softWrap(true)
                         .fontWeight(FontWeight.w400)
@@ -225,9 +171,9 @@ class LoginScreen extends StatelessWidget {
                     6.w.widthBox,
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => SignUpScreen());
+                        Get.to(() => LoginScreen());
                       },
-                      child: "Sign Up"
+                      child: "Sign In"
                           .text
                           .softWrap(true)
                           .fontWeight(FontWeight.w600)
@@ -236,7 +182,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                38.h.heightBox,
+                84.h.heightBox,
               ],
             ),
           ),
