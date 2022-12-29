@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "322721833929",
-    "project_id": "spot-light-85b24",
-    "storage_bucket": "spot-light-85b24.appspot.com"
+    "project_number": "982983005626",
+    "project_id": "spot-light-bff5e",
+    "storage_bucket": "spot-light-bff5e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:322721833929:android:7a25f94f711e2abbe9fe18",
+        "mobilesdk_app_id": "1:982983005626:android:d144dc9aa9d7cd10eeb983",
         "android_client_info": {
           "package_name": "com.example.spoot_light"
         }
       },
       "oauth_client": [
         {
-          "client_id": "322721833929-2urtf6j6c3907aai0qtf2qcafob9v9mj.apps.googleusercontent.com",
+          "client_id": "982983005626-818pnbtr5q41p70mnmkjl7vf7ni5tusq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQA7CqbX1f9IzPioWcVSH6kGRmypoK1Xc"
+          "current_key": "AIzaSyAawnytvVuuKDGleB3kebJOvhIYM74F2J4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "322721833929-2urtf6j6c3907aai0qtf2qcafob9v9mj.apps.googleusercontent.com",
+              "client_id": "982983005626-818pnbtr5q41p70mnmkjl7vf7ni5tusq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

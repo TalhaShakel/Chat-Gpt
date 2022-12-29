@@ -44,40 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBXuoucg25lQJbDlaLRkYD8W4502PuRD4I',
-    appId: '1:322721833929:web:1e6b986d36dd5206e9fe18',
-    messagingSenderId: '322721833929',
-    projectId: 'spot-light-85b24',
-    authDomain: 'spot-light-85b24.firebaseapp.com',
-    storageBucket: 'spot-light-85b24.appspot.com',
-    measurementId: 'G-Q286HLLB6F',
+    apiKey: 'AIzaSyAUJZtilzWKZwXzVrm6PTrrmbuoZd90Kak',
+    appId: '1:982983005626:web:ce0f696baefc34dfeeb983',
+    messagingSenderId: '982983005626',
+    projectId: 'spot-light-bff5e',
+    authDomain: 'spot-light-bff5e.firebaseapp.com',
+    storageBucket: 'spot-light-bff5e.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAQA7CqbX1f9IzPioWcVSH6kGRmypoK1Xc',
-    appId: '1:322721833929:android:7a25f94f711e2abbe9fe18',
-    messagingSenderId: '322721833929',
-    projectId: 'spot-light-85b24',
-    storageBucket: 'spot-light-85b24.appspot.com',
+    apiKey: 'AIzaSyAawnytvVuuKDGleB3kebJOvhIYM74F2J4',
+    appId: '1:982983005626:android:d144dc9aa9d7cd10eeb983',
+    messagingSenderId: '982983005626',
+    projectId: 'spot-light-bff5e',
+    storageBucket: 'spot-light-bff5e.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD_tFdfr_ixX0FUX_akZWPSnPLPAiuYp3I',
-    appId: '1:322721833929:ios:5d087017d46e37e8e9fe18',
-    messagingSenderId: '322721833929',
-    projectId: 'spot-light-85b24',
-    storageBucket: 'spot-light-85b24.appspot.com',
-    iosClientId: '322721833929-j5rv75dr1565d4qp21vc4kkcv3fb4q1r.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDty9bGXfaP9aZo1PCIetP5OX6VZPryFNU',
+    appId: '1:982983005626:ios:3397c6cd82bc64f3eeb983',
+    messagingSenderId: '982983005626',
+    projectId: 'spot-light-bff5e',
+    storageBucket: 'spot-light-bff5e.appspot.com',
+    iosClientId: '982983005626-55i8i75um7h9l8d071seb4olhioap1gq.apps.googleusercontent.com',
     iosBundleId: 'com.example.spootLight',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD_tFdfr_ixX0FUX_akZWPSnPLPAiuYp3I',
-    appId: '1:322721833929:ios:5d087017d46e37e8e9fe18',
-    messagingSenderId: '322721833929',
-    projectId: 'spot-light-85b24',
-    storageBucket: 'spot-light-85b24.appspot.com',
-    iosClientId: '322721833929-j5rv75dr1565d4qp21vc4kkcv3fb4q1r.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDty9bGXfaP9aZo1PCIetP5OX6VZPryFNU',
+    appId: '1:982983005626:ios:3397c6cd82bc64f3eeb983',
+    messagingSenderId: '982983005626',
+    projectId: 'spot-light-bff5e',
+    storageBucket: 'spot-light-bff5e.appspot.com',
+    iosClientId: '982983005626-55i8i75um7h9l8d071seb4olhioap1gq.apps.googleusercontent.com',
     iosBundleId: 'com.example.spootLight',
   );
 }
