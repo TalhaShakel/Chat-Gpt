@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "322721833929",
+    "project_id": "spot-light-85b24",
+    "storage_bucket": "spot-light-85b24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322721833929:android:7a25f94f711e2abbe9fe18",
+        "android_client_info": {
+          "package_name": "com.example.spoot_light"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322721833929-2urtf6j6c3907aai0qtf2qcafob9v9mj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQA7CqbX1f9IzPioWcVSH6kGRmypoK1Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322721833929-2urtf6j6c3907aai0qtf2qcafob9v9mj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
