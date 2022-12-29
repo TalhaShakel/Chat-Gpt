@@ -266,14 +266,10 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                     width: 359.w,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          begin: Alignment.center,
-                          end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            ColorConstants.aiBGcolor1,
-                            ColorConstants.aiBGcolor2,
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: ColorConstants.btnColor),
                             // Color.fromRGBO(115, 186, 197, 1)
-                          ],
-                        ),
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
                       child: "NEXT"

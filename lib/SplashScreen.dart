@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Screens/LoginScreen.dart';
+import 'package:spoot_light/Screens/Auth/LoginScreen.dart';
 
 class SplashScrren extends StatefulWidget {
   const SplashScrren({super.key});
@@ -24,8 +24,15 @@ class _SplashScrrenState extends State<SplashScrren> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Image.asset("assets/b.png"),
+      body: Container(
+        height: 257.h,
+        width: 257.w,
+        child: Center(
+          child: Image.asset(
+            "assets/b.png",
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

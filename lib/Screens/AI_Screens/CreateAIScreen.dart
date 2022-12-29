@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Constants/button.dart';
 import 'package:spoot_light/Constants/customized_textformfield.dart';
 import 'package:spoot_light/Screens/AI_Screens/ChatbotScreen.dart';
+import 'package:spoot_light/Screens/AI_Screens/AIbutton.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CreateAIShare extends StatelessWidget {
@@ -137,7 +137,7 @@ class CreateAIShare extends StatelessWidget {
                       Container(
                         height: 41.h,
                         width: 350.w,
-                        child: CustomizedButton(
+                        child: AIButton(
                             buttonName: "ADD MORE CREDITS",
                             funcname: () {},
                             colorButton: ColorConstants.ButtonColor),
@@ -146,7 +146,7 @@ class CreateAIShare extends StatelessWidget {
                       Container(
                         height: 41.h,
                         width: 350.w,
-                        child: CustomizedButton(
+                        child: AIButton(
                             buttonName: "ADD MORE CREDITS",
                             funcname: () {
                               Get.to(() => ChatBotScreen());

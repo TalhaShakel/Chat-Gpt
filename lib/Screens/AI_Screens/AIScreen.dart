@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Constants/button.dart';
 import 'package:spoot_light/Screens/AI_Screens/CreateAIScreen.dart';
+import 'package:spoot_light/Screens/AI_Screens/AIbutton.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AIScreen extends StatelessWidget {
@@ -37,10 +37,10 @@ class AIScreen extends StatelessWidget {
                   // decoration: BoxDecoration(
                   //     border: Border.all(color: Colors.white),
                   //     borderRadius: BorderRadius.all(Radius.circular(70))),
-                  child: CustomizedButton(
+                  child: AIButton(
                       buttonName: "CREATE IMAGES WITH ARTEMIS",
                       funcname: () {},
-                      colorButton: ColorConstants.ButtonColor),
+                      colorButton: Colors.transparent),
                 ),
                 60.h.heightBox,
                 Container(
@@ -61,10 +61,11 @@ class AIScreen extends StatelessWidget {
                 Container(
                   height: 41.h,
                   width: 359.w,
-                  child: CustomizedButton(
+                  decoration: BoxDecoration(color: Colors.transparent),
+                  child: AIButton(
                       buttonName: "CHAT WITH MERLIN",
                       funcname: () {},
-                      colorButton: ColorConstants.ButtonColor),
+                      colorButton: Colors.transparent),
                 ),
                 60.h.heightBox,
                 Container(
@@ -84,12 +85,13 @@ class AIScreen extends StatelessWidget {
                 Container(
                   height: 41.h,
                   width: 359.w,
-                  child: CustomizedButton(
+                  decoration: BoxDecoration(color: Colors.transparent),
+                  child: AIButton(
                       buttonName: "COMING SOON",
                       funcname: () {
                         Get.to(() => CreateAIShare());
                       },
-                      colorButton: ColorConstants.ButtonColor),
+                      colorButton: Colors.transparent),
                 ),
                 84.h.heightBox,
               ]),

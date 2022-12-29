@@ -4,12 +4,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 
-class CustomizedButton extends StatelessWidget {
+class AIButton extends StatelessWidget {
   String? buttonName;
   VoidCallback funcname;
   var colorButton;
 
-  CustomizedButton(
+  AIButton(
       {super.key,
       required this.buttonName,
       required this.funcname,

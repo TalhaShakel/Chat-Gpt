@@ -8,8 +8,8 @@ import 'package:spoot_light/Constants/customized_textformfield.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Models/UserModels.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
-import 'package:spoot_light/Screens/AboutUserInfoScreen.dart';
-import 'package:spoot_light/Screens/SignUpScreen.dart';
+import 'package:spoot_light/Screens/Auth/SignUpScreen.dart';
+import 'package:spoot_light/Screens/Profile/AboutUserInfoScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -78,8 +78,15 @@ class LoginScreen extends StatelessWidget {
                         .size(28.sp)
                         .fontWeight(FontWeight.w600)
                         .make()),
-                Center(
-                  child: Image.asset("assets/b.png"),
+                Container(
+                  height: 203.h,
+                  width: 203.w,
+                  child: Center(
+                    child: Image.asset(
+                      "assets/b.png",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 9.h.heightBox,
                 "Email".text.size(14.sp).make(),
