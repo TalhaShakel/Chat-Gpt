@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,11 +27,14 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
   var selectedgender;
   var selectedlang;
   Uint8List? image;
+  String? userImage;
 
   TextEditingController _genderController = TextEditingController();
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _birthdayController = TextEditingController();
   TextEditingController _languageController = TextEditingController();
+
+  late File selected;
 
   @override
   void dispose() {
@@ -38,6 +43,8 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
     _birthdayController.dispose();
     _languageController.dispose();
   }
+
+  PickedFile? img;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +63,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 Center(
                   child: Stack(
                     children: [
-                      image == null
+                      img == null
                           ? Container(
                               height: 147.h,
                               width: 147.w,
@@ -75,10 +82,13 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                                 shape: BoxShape.circle,
                               ),
                               child: CircleAvatar(
+                                // radius: 200,
                                 backgroundColor: Colors.transparent,
                                 child: ClipOval(
-                                  child: Image.memory(
-                                    image!,
+                                  child: Image.file(
+                                    selected,
+                                    // Image.file(
+                                    // img!.toString(),
                                     fit: BoxFit.cover,
                                     height: 147.h,
                                     width: 147.w,
@@ -91,12 +101,15 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         right: 4,
                         child: GestureDetector(
                           onTap: () async {
-                            Uint8List? img =
-                                await pickImage(ImageSource.gallery);
+                            img = await chooseImage(ImageSource.gallery);
                             if (img != null) {
                               setState(() {
-                                image = img;
+                                img;
+                                selected = File(img!.path.toString());
                               });
+
+                              // downloadurl.add(await uploadImageToStorage(img));
+                              userImage = await uploadImageToStorage(img);
                             }
                           },
                           child: Container(
@@ -160,7 +173,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 25.h.heightBox,
                 "Birthday".text.size(14.sp).make(),
                 10.h.heightBox,
-                
+
                 // TextFormField(
                 //   controller: _birthdayController,
                 //   decoration: InputDecoration(
@@ -185,7 +198,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 //     ),
                 //   ),
                 // ),
-                
+
                 textfiledcontainer("YYYY-MM-DD", _birthdayController),
                 25.h.heightBox,
                 "User Name".text.size(14.sp).make(),
@@ -235,7 +248,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         "userBirthday": _birthdayController.text.trim(),
                         "userGender": selectedgender.toString(),
                         "userLanguage": selectedlang.toString(),
-                        "userPicture": image
+                        "userPicture": userImage.toString()
                         // "userPicture": ,
                       });
                     } catch (e) {
