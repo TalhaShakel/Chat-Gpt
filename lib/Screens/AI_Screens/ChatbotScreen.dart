@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
+import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ChatBotScreen extends StatelessWidget {
@@ -215,16 +216,21 @@ class ChatBotScreen extends StatelessWidget {
                               hintStyle: TextStyle(color: Colors.white)),
                         ),
                       ),
-                      Container(
-                        height: 41.h,
-                        width: 41.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white, shape: BoxShape.circle),
-                        child: Center(
-                          child: Icon(
-                            Icons.send,
-                            color: Colors.black,
-                            size: 20,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => HomeScreen());
+                        },
+                        child: Container(
+                          height: 41.h,
+                          width: 41.h,
+                          decoration: BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: Center(
+                            child: Icon(
+                              Icons.send,
+                              color: Colors.black,
+                              size: 20,
+                            ),
                           ),
                         ),
                       )

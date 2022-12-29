@@ -78,13 +78,15 @@ class LoginScreen extends StatelessWidget {
                         .size(28.sp)
                         .fontWeight(FontWeight.w600)
                         .make()),
-                Container(
-                  height: 203.h,
-                  width: 203.w,
-                  child: Center(
-                    child: Image.asset(
-                      "assets/b.png",
-                      fit: BoxFit.cover,
+                Center(
+                  child: Container(
+                    height: 203.h,
+                    width: 203.w,
+                    child: Center(
+                      child: Image.asset(
+                        "assets/b.png",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -102,13 +104,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                     contentPadding: EdgeInsets.all(10),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: ConstColors.CircleColor, width: 3),
+                      borderSide:
+                          BorderSide(color: ConstColors.CircleColor, width: 3),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: ConstColors.textfieldColor),
+                      borderSide: BorderSide(color: ConstColors.textfieldColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     hintText: "brucewayne@gmail.com",
@@ -200,7 +201,7 @@ class LoginScreen extends StatelessWidget {
                     height: 50.h,
                     width: 359.w,
                     decoration: BoxDecoration(
-                        color: ConstColors.Lbutton,
+                        // color: ConstColors.Lbutton,
                         gradient: LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,

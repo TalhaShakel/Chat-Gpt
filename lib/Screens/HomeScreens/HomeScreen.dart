@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,49 +10,170 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      // drawer: Drawer(),
+      drawer: Theme(
+        data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+        child: Drawer(),
+      ),
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.black,
+        leading: GestureDetector(
+          onTap: (() {
+            Get.to(() => Drawer(
+                  child: Container(
+                      // color: Colors.black,
+                      ),
+                ));
+          }),
+          child: Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
         ),
+        title: Row(children: [
+          Text(
+            "Good Morning, ",
+            style: TextStyle(
+                fontSize: 24.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.black),
+          ),
+          Text(
+            "John",
+            style: TextStyle(
+                fontSize: 24.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.purple),
+          )
+        ]),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.h),
-        child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              15.h.heightBox,
+              Container(
+                height: 40.h,
+                width: 349.w,
+                child: TextField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: ConstColors.CircleColor,
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: "Search",
+                        hintStyle:
+                            TextStyle(color: Colors.grey[400], fontSize: 8.sp),
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
+                        border: InputBorder.none)),
+              ),
+              16.h.heightBox,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 45.h,
+                    width: 44.w,
+                    child: Image.asset("assets/pp.png"),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      "I want to do nothing."
+                          .text
+                          .size(18.sp)
+                          .fontWeight(FontWeight.w500)
+                          .make(),
+                      Container(
+                          width: 94.w,
+                          height: 12,
+                          child: Image.asset("assets/li.PNG"))
+                    ],
+                  ),
+                  60.w.widthBox,
+                  Container(
+                      height: 25.h,
+                      width: 25.w,
+                      child: Image.asset("assets/cc.PNG"))
+                ],
+              ),
+              14.h.heightBox,
+              "Memories".text.size(22.sp).fontWeight(FontWeight.w600).make(),
+              25.h.heightBox,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  child: Row(
+                    children: [
+                      MemoryContainer(),
+                      MemoryContainer(),
+                      MemoryContainer(),
+                      MemoryContainer(),
+                      MemoryContainer(),
+                      MemoryContainer(),
+                    ],
+                  ),
+                ),
+              ),
+              12.h.heightBox,
+              "Feed".text.size(22.sp).fontWeight(FontWeight.w600).make(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding MemoryContainer() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15.h),
+      child: Container(
+        height: 110.h,
+        width: 74.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(14)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 8,
+              blurRadius: 11,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Stack(
           children: [
             Container(
-              height: 40.h,
-              width: 333.w,
-              child: TextFormField(
-                  decoration: InputDecoration(
-                filled: true,
-                fillColor: ConstColors.CircleColor,
-                contentPadding: EdgeInsets.all(10),
-                hintText: "Search  here",
-                hintStyle: TextStyle(
-                  color: Colors.grey[400],
-                ),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: ConstColors.CircleColor, width: 3),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                ////////////////////////////////
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: ConstColors.CircleColor, width: 3),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              )),
+              height: 98.h,
+              width: 74.w,
+              child: Image.asset(
+                "assets/pic.png",
+                fit: BoxFit.cover,
+              ),
             ),
+            Positioned(
+              // bottom: 0,
+              left: 22,
+              right: 22,
+              top: 83,
+              child: Container(
+                width: 30.w,
+                height: 30.h,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 3, color: Colors.white)),
+                child: Image.asset(
+                  "assets/pp.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+            )
           ],
         ),
       ),

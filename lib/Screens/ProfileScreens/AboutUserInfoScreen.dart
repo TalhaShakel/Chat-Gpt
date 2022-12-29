@@ -5,9 +5,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Models/Service.dart';
+import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AboutUserInfo extends StatefulWidget {
@@ -141,8 +143,8 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                   decoration: BoxDecoration(
                       color: ConstColors.textfieldColor,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          width: 3, color: ConstColors.CircleColor)),
+                      border:
+                          Border.all(width: 3, color: ConstColors.CircleColor)),
                   child: DropdownButtonHideUnderline(
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
@@ -171,32 +173,52 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 "Birthday".text.size(14.sp).make(),
                 10.h.heightBox,
 
-                // TextFormField(
-                //   controller: _birthdayController,
-                //   decoration: InputDecoration(
-                //     filled: true,
-                //     fillColor: ColorConstants.textfieldColor,
-                //     contentPadding: EdgeInsets.all(10),
-                //     // prefix:
-                //     enabledBorder: OutlineInputBorder(
-                //       borderSide: BorderSide(
-                //           color: ColorConstants.CircleColor, width: 3),
-                //       borderRadius: BorderRadius.circular(15),
-                //     ),
-                //     focusedBorder: OutlineInputBorder(
-                //       borderSide:
-                //           BorderSide(color: ColorConstants.textfieldColor),
-                //       borderRadius: BorderRadius.circular(10),
-                //     ),
-                //     hintText: "YYYY-MM-DD ",
-                //     hintStyle: TextStyle(color: Colors.black),
-                //     border: OutlineInputBorder(
-                //       borderRadius: BorderRadius.circular(10),
-                //     ),
-                //   ),
-                // ),
+                Container(
+                  height: 50.h,
+                  width: 359.w,
+                  decoration: BoxDecoration(
+                      color: ConstColors.textfieldColor,
+                      border:
+                          Border.all(width: 1, color: ConstColors.CircleColor),
+                      borderRadius: BorderRadius.all(Radius.circular(11))),
+                  child: TextFormField(
+                    controller: _birthdayController,
+                    readOnly: true,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: ConstColors.textfieldColor,
+                      contentPadding: EdgeInsets.all(10),
+                      border: InputBorder.none,
+                      hintText: "YYYY-MM-DD ",
+                      hintStyle: TextStyle(color: Colors.black),
+                    ),
+                    onTap: () async {
+                      DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(), //get today's date
+                          firstDate: DateTime(2000), //DateTime.now()
+                          lastDate: DateTime(2101));
 
-                textfiledcontainer("YYYY-MM-DD", _birthdayController),
+                      if (pickedDate != null) {
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        setState(() {
+                          _birthdayController.text = formattedDate.toString();
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Color(0xff08296c),
+                            content: Text("Date is not selected"),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+
+                // textfiledcontainer("YYYY-MM-DD", _birthdayController),
+
                 25.h.heightBox,
                 "User Name".text.size(14.sp).make(),
                 10.h.heightBox,
@@ -211,8 +233,8 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                   decoration: BoxDecoration(
                       color: ConstColors.textfieldColor,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          width: 3, color: ConstColors.CircleColor)),
+                      border:
+                          Border.all(width: 3, color: ConstColors.CircleColor)),
                   child: DropdownButtonHideUnderline(
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
@@ -251,12 +273,13 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                     } catch (e) {
                       Get.snackbar("${e}", "");
                     }
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Color(0xff08296c),
-                        content: Text("Coming Soon"),
-                      ),
-                    );
+                    Get.to(() => AIScreen());
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(
+                    //     backgroundColor: Color(0xff08296c),
+                    //     content: Text("Coming Soon"),
+                    //   ),
+                    // );
                   },
                   child: Container(
                     height: 50.h,
@@ -266,7 +289,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
                             colors: ConstColors.btnColor),
-                            // Color.fromRGBO(115, 186, 197, 1)
+                        // Color.fromRGBO(115, 186, 197, 1)
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
                       child: "NEXT"
@@ -296,7 +319,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
         contentPadding: EdgeInsets.all(10),
         // prefix:
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ConstColors.CircleColor, width: 3),
+          borderSide: BorderSide(color: ConstColors.CircleColor, width: 1),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(

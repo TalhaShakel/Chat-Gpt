@@ -72,11 +72,13 @@ class SignUpScreen extends StatelessWidget {
                         .size(28.sp)
                         .fontWeight(FontWeight.w600)
                         .make()),
-                Container(
-                  height: 203.h,
-                  width: 203.w,
-                  child: Center(
-                    child: Image.asset("assets/b.png"),
+                Center(
+                  child: Container(
+                    height: 203.h,
+                    width: 203.w,
+                    child: Center(
+                      child: Image.asset("assets/b.png"),
+                    ),
                   ),
                 ),
                 9.h.heightBox,
