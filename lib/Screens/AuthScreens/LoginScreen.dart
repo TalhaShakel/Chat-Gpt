@@ -8,8 +8,8 @@ import 'package:spoot_light/Constants/customized_textformfield.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Models/UserModels.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
-import 'package:spoot_light/Screens/Auth/SignUpScreen.dart';
-import 'package:spoot_light/Screens/Profile/AboutUserInfoScreen.dart';
+import 'package:spoot_light/Screens/AuthScreens/SignUpScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -95,7 +95,7 @@ class LoginScreen extends StatelessWidget {
                   controller: _emailController,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: ColorConstants.textfieldColor,
+                    fillColor: ConstColors.textfieldColor,
                     prefixIcon: Icon(
                       Icons.email_outlined,
                       color: Colors.black,
@@ -103,12 +103,12 @@ class LoginScreen extends StatelessWidget {
                     contentPadding: EdgeInsets.all(10),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: ColorConstants.CircleColor, width: 3),
+                          color: ConstColors.CircleColor, width: 3),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: ColorConstants.textfieldColor),
+                          BorderSide(color: ConstColors.textfieldColor),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     hintText: "brucewayne@gmail.com",
@@ -200,11 +200,11 @@ class LoginScreen extends StatelessWidget {
                     height: 50.h,
                     width: 359.w,
                     decoration: BoxDecoration(
-                        color: ColorConstants.Lbutton,
+                        color: ConstColors.Lbutton,
                         gradient: LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
-                            colors: ColorConstants.btnColor),
+                            colors: ConstColors.btnColor),
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
                       child: "SIGN IN"
@@ -253,7 +253,7 @@ class LoginScreen extends StatelessWidget {
       height: 50.h,
       width: 154.w,
       decoration: BoxDecoration(
-          color: ColorConstants.CircleColor,
+          color: ConstColors.CircleColor,
           borderRadius: BorderRadius.all(Radius.circular(69))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

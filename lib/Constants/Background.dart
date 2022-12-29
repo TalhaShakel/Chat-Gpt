@@ -17,8 +17,8 @@ class AiBackground extends StatelessWidget {
             begin: Alignment.center,
             end: Alignment.bottomCenter,
             colors: <Color>[
-              ColorConstants.aiBGcolor1,
-              ColorConstants.aiBGcolor2,
+              ConstColors.aiBGcolor1,
+              ConstColors.aiBGcolor2,
               // Color.fromRGBO(115, 186, 197, 1)
             ],
           ),

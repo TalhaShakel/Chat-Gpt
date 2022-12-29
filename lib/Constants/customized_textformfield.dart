@@ -53,7 +53,7 @@ class _CustomizedTextFormfieldState extends State<CustomizedTextFormfield> {
       //       },
       decoration: InputDecoration(
         filled: true,
-        fillColor: ColorConstants.textfieldColor,
+        fillColor: ConstColors.textfieldColor,
         contentPadding: EdgeInsets.all(10),
         // labelText: 'Email:',
         suffixIcon: widget.isPassword!
@@ -67,13 +67,13 @@ class _CustomizedTextFormfieldState extends State<CustomizedTextFormfield> {
             : null,
         enabledBorder: OutlineInputBorder(
           borderSide:
-              BorderSide(color: ColorConstants.textfieldColor, width: 3),
+              BorderSide(color: ConstColors.textfieldColor, width: 3),
           borderRadius: BorderRadius.circular(15),
         ),
         ////////////////////////////////
         focusedBorder: OutlineInputBorder(
           borderSide:
-              BorderSide(color: ColorConstants.textfieldColor, width: 3),
+              BorderSide(color: ConstColors.textfieldColor, width: 3),
           borderRadius: BorderRadius.circular(10),
         ),
         hintText: widget.hintText,

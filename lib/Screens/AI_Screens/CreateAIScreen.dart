@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Constants/customized_textformfield.dart';
 import 'package:spoot_light/Screens/AI_Screens/ChatbotScreen.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIbutton.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -72,6 +69,7 @@ class CreateAIShare extends StatelessWidget {
                         height: 41.h,
                         width: 350.w,
                         decoration: BoxDecoration(
+                            color: Colors.transparent,
                             border: Border.all(color: Colors.white),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(69))),
@@ -140,7 +138,7 @@ class CreateAIShare extends StatelessWidget {
                         child: AIButton(
                             buttonName: "ADD MORE CREDITS",
                             funcname: () {},
-                            colorButton: ColorConstants.ButtonColor),
+                            colorButton: Colors.transparent),
                       ),
                       20.h.heightBox,
                       Container(
@@ -151,7 +149,7 @@ class CreateAIShare extends StatelessWidget {
                             funcname: () {
                               Get.to(() => ChatBotScreen());
                             },
-                            colorButton: ColorConstants.ButtonColor),
+                            colorButton: Colors.transparent),
                       ),
                       26.h.heightBox,
                     ],

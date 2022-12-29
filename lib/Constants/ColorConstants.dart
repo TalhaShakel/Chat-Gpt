@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
-class ColorConstants {
+class ConstColors {
   static Color CircleColor = hexToColor("#EEEEEE"); //background: #1A8411;
   static Color ButtonColor = hexToColor("#387c87");
   // static Color BackBColor = hexToColor("#525252");

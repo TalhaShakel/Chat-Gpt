@@ -5,9 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:language_picker/language_picker_dropdown.dart';
-import 'package:language_picker/languages.dart';
-import 'package:language_picker/languages.g.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Models/Service.dart';
@@ -142,10 +139,10 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                   height: 50.h,
                   width: 359.w,
                   decoration: BoxDecoration(
-                      color: ColorConstants.textfieldColor,
+                      color: ConstColors.textfieldColor,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                          width: 3, color: ColorConstants.CircleColor)),
+                          width: 3, color: ConstColors.CircleColor)),
                   child: DropdownButtonHideUnderline(
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
@@ -212,10 +209,10 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                   height: 50.h,
                   width: 359.w,
                   decoration: BoxDecoration(
-                      color: ColorConstants.textfieldColor,
+                      color: ConstColors.textfieldColor,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                          width: 3, color: ColorConstants.CircleColor)),
+                          width: 3, color: ConstColors.CircleColor)),
                   child: DropdownButtonHideUnderline(
                     child: Padding(
                       padding: EdgeInsets.all(10.0),
@@ -268,7 +265,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         gradient: LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
-                            colors: ColorConstants.btnColor),
+                            colors: ConstColors.btnColor),
                             // Color.fromRGBO(115, 186, 197, 1)
                         borderRadius: BorderRadius.all(Radius.circular(11))),
                     child: Center(
@@ -295,15 +292,15 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
       controller: controller,
       decoration: InputDecoration(
         filled: true,
-        fillColor: ColorConstants.textfieldColor,
+        fillColor: ConstColors.textfieldColor,
         contentPadding: EdgeInsets.all(10),
         // prefix:
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConstants.CircleColor, width: 3),
+          borderSide: BorderSide(color: ConstColors.CircleColor, width: 3),
           borderRadius: BorderRadius.circular(15),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: ColorConstants.textfieldColor),
+          borderSide: BorderSide(color: ConstColors.textfieldColor),
           borderRadius: BorderRadius.circular(10),
         ),
         hintText: "$text",

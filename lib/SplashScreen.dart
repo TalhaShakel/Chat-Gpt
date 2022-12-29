@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Screens/Auth/LoginScreen.dart';
+import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
 
 class SplashScrren extends StatefulWidget {
   const SplashScrren({super.key});

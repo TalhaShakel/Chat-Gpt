@@ -74,7 +74,7 @@ uploadImageToStorage(PickedFile? pickedFile1) async {
 
       await _reference
           .putData(
-        await pickedFile1!.readAsBytes(),
+        await pickedFile1.readAsBytes(),
         SettableMetadata(contentType: 'image/jpeg'),
       )
           .whenComplete(() async {
