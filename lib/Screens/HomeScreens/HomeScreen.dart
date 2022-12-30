@@ -5,33 +5,58 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  Drawer MainDrawer(BuildContext _) {
+    return Drawer(
+      width: 297.w,
+      backgroundColor: Colors.white.withOpacity(0.8),
+      child: Padding(
+        padding: EdgeInsets.only(left: 21),
+        child: Column(
+          children: [
+            49.h.heightBox,
+            Row(
+              children: [
+                Container(
+                  height: 53.h,
+                  width: 53.w,
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Image.asset("assets/dp.png"),
+                ),
+              ],
+            )
+            // DrawerHeader(
+            //   child: Container(
+            //       height: 142,
+            //       width: MediaQuery.of(context).size.width,
+            //       child: Image.asset(
+            //         "assets/post.png",
+            //       )),
+            //   decoration: BoxDecoration(
+            //     color: Colors.transparent,
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // drawer: Drawer(),
-      drawer: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-        child: Drawer(),
-      ),
+      drawer: MainDrawer(context),
       appBar: AppBar(
+        // automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: GestureDetector(
-          onTap: (() {
-            Get.to(() => Drawer(
-                  child: Container(
-                      // color: Colors.black,
-                      ),
-                ));
-          }),
-          child: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-        ),
+        // leading: GestureDetector(
+        //     onTap: (() {
+        //       Get.to(() => MainDrawer(context));
+        //     }),
+        //     child: Image.asset("assets/m.png")),
         title: Row(children: [
           Text(
             "Good Morning, ",
