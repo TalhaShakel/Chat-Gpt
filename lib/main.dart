@@ -4,9 +4,11 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
+import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
 import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/SelectPlanScreen.dart';
 import 'package:spoot_light/SplashScreen.dart';
 import 'package:spoot_light/firebase_options.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: SelectPlanScreen(),
+            home: WalletScreen(),
             debugShowCheckedModeBanner: false,
           );
         });
