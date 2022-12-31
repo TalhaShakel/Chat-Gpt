@@ -2,61 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Screens/HomeScreens/DrawerScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  Drawer MainDrawer(BuildContext _) {
-    return Drawer(
-      width: 297.w,
-      backgroundColor: Colors.white.withOpacity(0.8),
-      child: Padding(
-        padding: EdgeInsets.only(left: 21),
-        child: Column(
-          children: [
-            49.h.heightBox,
-            Row(
-              children: [
-                Container(
-                  height: 53.h,
-                  width: 53.w,
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Image.asset("assets/dp.png"),
-                ),
-              ],
-            )
-            // DrawerHeader(
-            //   child: Container(
-            //       height: 142,
-            //       width: MediaQuery.of(context).size.width,
-            //       child: Image.asset(
-            //         "assets/post.png",
-            //       )),
-            //   decoration: BoxDecoration(
-            //     color: Colors.transparent,
-            //   ),
-            // ),
-          ],
-        ),
-      ),
-    );
-  }
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
-      drawer: MainDrawer(context),
+      ////////////////////////
+      drawer: MainDrawer(context,scaffoldKey),
+      ///////////////
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         // automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.white,
-        // leading: GestureDetector(
-        //     onTap: (() {
-        //       Get.to(() => MainDrawer(context));
-        //     }),
-        //     child: Image.asset("assets/m.png")),
+        leading: GestureDetector(
+            onTap: (() {
+              if (scaffoldKey.currentState!.isDrawerOpen) {
+                scaffoldKey.currentState!.closeDrawer();
+              } else {
+                scaffoldKey.currentState!.openDrawer();
+              }
+            }),
+            child: Image.asset("assets/m.png")),
         title: Row(children: [
           Text(
             "Good Morning, ",
