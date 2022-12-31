@@ -4,13 +4,17 @@ import 'package:get/get.dart';
 
 class MainController extends GetxController {
   /////////// Male & Female ////////////////
-  
+
   var gender = "";
   isselect(select) {
     gender = select;
     refresh();
   }
 
+  bool topics = false;
+  istopic(value) {
+    topics = value;
+  }
 
   var index = 0;
   pages(index1) {

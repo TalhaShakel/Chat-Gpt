@@ -16,10 +16,15 @@ class ConstColors {
     hexToColor("#D8EEF9"),
     hexToColor("#F2D5DD"),
     hexToColor("#FEE7BC"),
-    // Color.fromARGB(216, 238, 249, 1),
-    // Color.fromARGB(242, 213, 221, 1),
-    // Color.fromARGB(254, 231, 188, 1)
+   
   ];
+
+ static List<Color> LwhiteColor = [
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFFFFF"),
+  ];
+
   static List<Color> NavbarSpec = [
     hexToColor("#24CCF1"),
     hexToColor("#214DEA"),
