@@ -5,6 +5,9 @@ import 'package:flutter/cupertino.dart';
 class ConstColors {
   static Color CircleColor = hexToColor("#EEEEEE"); //background: #1A8411;
   static Color ButtonColor = hexToColor("#387c87");
+  static Color IconColor = hexToColor("#6B6D7D");
+  static Color NavbarIconC = hexToColor("#C2C2C2");
+  //
   // static Color BackBColor = hexToColor("#525252");
   static Color textfieldColor = hexToColor("#FCF7F8");
   static Color aiBGcolor1 = Color.fromARGB(255, 108, 173, 185);
@@ -17,6 +20,11 @@ class ConstColors {
     // Color.fromARGB(242, 213, 221, 1),
     // Color.fromARGB(254, 231, 188, 1)
   ];
+  static List<Color> NavbarSpec = [
+    hexToColor("#24CCF1"),
+    hexToColor("#214DEA"),
+  ];
+
   static Color Lbutton =
       Color.fromARGB(0xffdaedf6, 0xffe9dce5, 0xffFf2d3db, 0xfffde4c2);
   static Color starColor = hexToColor("#FE543D");

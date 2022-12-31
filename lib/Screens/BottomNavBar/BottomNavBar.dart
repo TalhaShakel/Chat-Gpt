@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
@@ -11,10 +12,10 @@ class BottomNavBarScreen extends StatelessWidget {
   // int _selectIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    // MyRequestScreen(),
-    // MainSearchScreen(),
-    // ChatScreen(),
-    // MyProfileM()
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
   ];
 
   @override
@@ -24,75 +25,88 @@ class BottomNavBarScreen extends StatelessWidget {
       return Scaffold(
         ///////////////////////////////////////////////////
         body: _widgetOptions[controller.index],
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              label: "",
-              icon: GestureDetector(
-                  onTap: () {
-                    controller.pages(0);
-                  },
-                  child: Container(
-                    child: Icon(Icons.home),
-                  )
-                  //  Icon(
-                  //  Image.asset(name)
-                  //   // color: Color(0xff08296c),
-                  //   color: ColorConstants.primaryDarkColor,
-                  // ),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25.r),
+              topRight: Radius.circular(25.r),
+            ),
+            child: BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: GestureDetector(
+                      onTap: () {
+                        controller.pages(0);
+                      },
+                      child: Container(
+                          height: 24.h,
+                          width: 24.h,
+                          child: Image.asset(
+                            "assets/h.png",
+                            // color: ConstColors.NavbarIconC
+                          ))),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: GestureDetector(
+                      onTap: () {
+                        controller.pages(1);
+                      },
+                      child: Container(
+                          height: 24.h,
+                          width: 24.h,
+                          child: Image.asset("assets/bn2.png",
+                              color: ConstColors.NavbarIconC))),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: GestureDetector(
+                      onTap: () {
+                        controller.pages(2);
+                      },
+                      child: Container(
+                          height: 24.h,
+                          width: 24.h,
+                          child: Image.asset("assets/ch.png",
+                              color: Colors.blue[800]))),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: GestureDetector(
+                      onTap: () {
+                        controller.pages(3);
+                      },
+                      // child: Icon(Icons.waves, color: ConstColors.NavbarIconC),
+                      child: Container(
+                          height: 24.h,
+                          width: 24.h,
+                          child: Image.asset("assets/wa.png",
+                              color: ConstColors.NavbarIconC))),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: GestureDetector(
+                    onTap: () {
+                      controller.pages(4);
+                    },
+                    child: Icon(Icons.email_outlined,
+                        color: ConstColors.NavbarIconC),
                   ),
-              // label: 'DashBoard',
+                ),
+              ],
+              currentIndex: controller.index,
+              selectedItemColor: Colors.black,
+              // onTap: Get.find(),
             ),
-            BottomNavigationBarItem(
-              label: "",
-              icon: GestureDetector(
-                onTap: () {
-                  controller.pages(1);
-                },
-                                  child: Icon(Icons.home),
-
-              ),
-              // label: 'Setting',
-            ),
-            BottomNavigationBarItem(
-              label: "",
-              icon: GestureDetector(
-                onTap: () {
-                  controller.pages(2);
-                },
-                                   child: Icon(Icons.home),
-
-              ),
-              // label: 'Setting',
-            ),
-            BottomNavigationBarItem(
-              label: "",
-              icon: GestureDetector(
-                onTap: () {
-                  controller.pages(3);
-                },
-                                    child: Icon(Icons.home),
-
-              ),
-              // label: 'Setting',
-            ),
-            /////////////////////////////////////
-            BottomNavigationBarItem(
-              label: "",
-              icon: GestureDetector(
-                onTap: () {
-                  controller.pages(4);
-                },
-                                  child: Icon(Icons.home),
-
-              ),
-              // label: 'My Profile',
-            ),
-            ///////////////////////////////////
-          ],
-          currentIndex: controller.index,
-          selectedItemColor: Colors.blue,
-          // onTap: Get.find(),
+          ),
         ),
       );
     });

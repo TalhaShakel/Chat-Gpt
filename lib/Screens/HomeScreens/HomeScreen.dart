@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Screens/HomeScreens/DrawerScreen.dart';
+import 'package:spoot_light/Screens/HomeScreens/bottomSheet.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       key: scaffoldKey,
       backgroundColor: Colors.white,
       ////////////////////////
-      drawer: MainDrawer(context,scaffoldKey),
+      drawer: MainDrawer(context, scaffoldKey),
       ///////////////
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -97,10 +98,15 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   60.w.widthBox,
-                  Container(
-                      height: 25.h,
-                      width: 25.w,
-                      child: Image.asset("assets/cc.PNG"))
+                  GestureDetector(
+                    onTap: () {
+                      Get.bottomSheet(bottomSheetScreen());
+                    },
+                    child: Container(
+                        height: 25.h,
+                        width: 25.w,
+                        child: Image.asset("assets/cc.PNG")),
+                  )
                 ],
               ),
               14.h.heightBox,
@@ -193,46 +199,68 @@ class HomeScreen extends StatelessWidget {
                         10.h.heightBox,
                         Row(
                           children: [
-                            Icon(
-                              Icons.thumb_up_outlined,
-                              color: Color(0xff6B6D7D),
-                              size: 20,
-                            ),
+                            Container(
+                                height: 15.h,
+                                width: 15.w,
+                                child: Image.asset(
+                                  "assets/lk.png",
+                                  color: ConstColors.IconColor,
+                                )),
+                            // Icon(
+                            //   Icons.thumb_up_outlined,
+                            //   color: Color(0xff6B6D7D),
+                            //   size: 20,
+                            // ),
                             5.w.widthBox,
                             Text(
                               "1201",
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.grey),
+                                  color: ConstColors.IconColor),
                             ),
                             29.w.widthBox,
-                            Icon(
-                              Icons.thumb_up_outlined,
-                              color: Color(0xff6B6D7D),
-                              size: 20,
-                            ),
+                            // Icon(
+                            //   Icons.thumb_up_outlined,
+                            //   color: Color(0xff6B6D7D),
+                            //   size: 20,
+                            // ),
+                            Container(
+                                height: 15.h,
+                                width: 15.w,
+                                child: Image.asset(
+                                  "assets/ms.png",
+                                  color: ConstColors.IconColor,
+                                )),
+
                             5.w.widthBox,
                             Text(
                               "24",
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.grey),
+                                  color: ConstColors.IconColor),
                             ),
                             29.w.widthBox,
-                            Icon(
-                              Icons.thumb_up_outlined,
-                              color: Color(0xff6B6D7D),
-                              size: 20,
-                            ),
+                            // Icon(
+                            //   Icons.thumb_up_outlined,
+                            //   color: Color(0xff6B6D7D),
+                            //   size: 20,
+                            // ),
+                            Container(
+                                height: 15.h,
+                                width: 15.w,
+                                child: Image.asset(
+                                  "assets/sh.png",
+                                  color: ConstColors.IconColor,
+                                )),
                             5.w.widthBox,
                             Text(
                               "Share",
                               style: TextStyle(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.grey),
+                                  color: ConstColors.IconColor),
                             ),
                           ],
                         ),
@@ -265,6 +293,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              10.h.heightBox,
             ],
           ),
         ),

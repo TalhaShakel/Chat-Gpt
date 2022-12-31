@@ -6,7 +6,7 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
   return Drawer(
     width: 297.w,
     // backgroundColor: Colors.white.withOpacity(0.8),
-    backgroundColor: Color.fromRGBO(255, 255, 255, 0.77),
+    backgroundColor: Color.fromRGBO(255, 255, 255, 0.89),
     child: Padding(
       padding: EdgeInsets.only(left: 21),
       child: SingleChildScrollView(
@@ -47,9 +47,14 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
             58.h.heightBox,
             Row(
               children: [
-                Container(width: 20.w, height: 24.h, child: Icon(Icons.list_alt)
-                    // Image.asset("assets/sc.png"),
-                    ),
+                Container(
+                  width: 20.w,
+                  height: 24.h,
+                  child: Image.asset("assets/to.png",
+
+                      // color: Color(0xff75766E)
+                      color: Colors.black),
+                ),
                 15.w.widthBox,
                 Text(
                   "To DO List",
@@ -67,9 +72,9 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
                 Container(
                   width: 20.w,
                   height: 24.h,
-                  child: Icon(
-                    Icons.wallet_membership_rounded,
-                    color: Color(0xff75766E),
+                  child: Image.asset(
+                    "assets/w.png",
+                    // color: Colors.black,
                   ),
                 ),
                 15.w.widthBox,
@@ -88,12 +93,13 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
                 Container(
                   width: 20.w,
                   height: 24.h,
-                  child: Image.asset("assets/sc.png"),
+                  child:
+                      Image.asset("assets/pri.png", color: Color(0xff75766E)),
                 ),
                 15.w.widthBox,
                 Expanded(
                   child: Text(
-                    "Refer a friend to get more credits ",
+                    "Refer a friend to get more\ncredits ",
                     softWrap: true,
                     style: TextStyle(
                         fontSize: 16.sp,
@@ -111,7 +117,8 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
                 Container(
                   width: 20.w,
                   height: 24.h,
-                  child: Image.asset("assets/sc.png"),
+                  child:
+                      Image.asset("assets/pri.png", color: Color(0xff75766E)),
                 ),
                 15.w.widthBox,
                 Text(
@@ -130,7 +137,7 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
                 Container(
                   width: 20.w,
                   height: 24.h,
-                  child: Image.asset("assets/sc.png"),
+                  child: Image.asset("assets/ap.png", color: Color(0xff75766E)),
                 ),
                 15.w.widthBox,
                 Text(
@@ -147,18 +154,18 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
             Row(
               children: [
                 Container(
-                  width: 20.w,
+                  width: 24.w,
                   height: 24.h,
-                  child: Image.asset("assets/sc.png"),
+                  child: Image.asset("assets/lo.png", color: Color(0xff75766E)),
                 ),
                 15.w.widthBox,
                 Text(
-                  "To DO List",
+                  "Logout",
                   style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
-                      // color: Color(0xff75766E)
-                      color: Colors.black),
+                      color: Color(0xff75766E)),
+                  // color: Colors.black),
                 ),
               ],
             ),
