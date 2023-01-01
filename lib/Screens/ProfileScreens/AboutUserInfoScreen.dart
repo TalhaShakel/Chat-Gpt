@@ -10,6 +10,7 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AboutUserInfo extends StatefulWidget {
@@ -172,7 +173,6 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 25.h.heightBox,
                 "Birthday".text.size(14.sp).make(),
                 10.h.heightBox,
-
                 Container(
                   height: 50.h,
                   width: 359.w,
@@ -273,13 +273,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                     } catch (e) {
                       Get.snackbar("${e}", "");
                     }
-                    Get.to(() => AIScreen());
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   SnackBar(
-                    //     backgroundColor: Color(0xff08296c),
-                    //     content: Text("Coming Soon"),
-                    //   ),
-                    // );
+                    Get.to(() => PickTopicScreen());
                   },
                   child: Container(
                     height: 50.h,
@@ -309,7 +303,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
     );
   }
 
-  // Container dropdownContainer(
+ 
   TextFormField textfiledcontainer(var text, var controller) {
     return TextFormField(
       controller: controller,
@@ -334,4 +328,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
       ),
     );
   }
+
+
+
 }

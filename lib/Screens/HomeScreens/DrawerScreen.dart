@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 Drawer MainDrawer(BuildContext _, var scaffoldKey) {
@@ -45,26 +47,31 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
               ],
             ),
             58.h.heightBox,
-            Row(
-              children: [
-                Container(
-                  width: 20.w,
-                  height: 24.h,
-                  child: Image.asset("assets/to.png",
+            GestureDetector(
+              onTap: () {
+                Get.to(() => ToDoList());
+              },
+              child: Row(
+                children: [
+                  Container(
+                    width: 20.w,
+                    height: 24.h,
+                    child: Image.asset("assets/to.png",
 
-                      // color: Color(0xff75766E)
-                      color: Colors.black),
-                ),
-                15.w.widthBox,
-                Text(
-                  "To DO List",
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      // color: Color(0xff75766E)
-                      color: Colors.black),
-                ),
-              ],
+                        // color: Color(0xff75766E)
+                        color: Colors.black),
+                  ),
+                  15.w.widthBox,
+                  Text(
+                    "To DO List",
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        // color: Color(0xff75766E)
+                        color: Colors.black),
+                  ),
+                ],
+              ),
             ),
             40.h.heightBox,
             Row(

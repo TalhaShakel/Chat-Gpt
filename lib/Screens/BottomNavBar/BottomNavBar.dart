@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
+import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 
 class BottomNavBarScreen extends StatelessWidget {
@@ -13,7 +14,8 @@ class BottomNavBarScreen extends StatelessWidget {
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    // HomeScreen(),
+    AIScreen(),
     HomeScreen(),
     HomeScreen(),
   ];

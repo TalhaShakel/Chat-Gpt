@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class SelectPlanScreen extends StatelessWidget {
@@ -42,12 +43,18 @@ class SelectPlanScreen extends StatelessWidget {
               ],
             ),
 
-            Center(
-              child: "Hooray we are done!"
-                  .text
-                  .size(24.sp)
-                  .fontWeight(FontWeight.w600)
-                  .make(),
+            GestureDetector(
+              onTap: (){
+        Get.to(() => BottomNavBarScreen());
+                
+              },
+              child: Center(
+                child: "Hooray we are done!"
+                    .text
+                    .size(24.sp)
+                    .fontWeight(FontWeight.w600)
+                    .make(),
+              ),
             ),
             5.heightBox,
             "You’ve completed your account setup. Lets’s start."

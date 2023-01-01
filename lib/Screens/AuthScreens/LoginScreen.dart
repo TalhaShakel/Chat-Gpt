@@ -10,6 +10,7 @@ import 'package:spoot_light/Models/UserModels.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/SignUpScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -48,7 +49,9 @@ class LoginScreen extends StatelessWidget {
         UserModel userdata =
             UserModel.fromMap(document.data() as Map<String, dynamic>);
         currentUserData = userdata;
-        Get.to(() => AboutUserInfo());
+        // Get.to(() => AboutUserInfo());
+        Get.to(() => PickTopicScreen());
+
         //////////////////////////////////
 
         EasyLoading.dismiss();

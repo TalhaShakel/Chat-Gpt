@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
+import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -218,7 +219,7 @@ class ChatBotScreen extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(() => HomeScreen());
+                          Get.to(() => WalletScreen());
                         },
                         child: Container(
                           height: 41.h,

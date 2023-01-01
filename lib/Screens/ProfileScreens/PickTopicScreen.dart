@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
+import 'package:spoot_light/Screens/ProfileScreens/SelectPlanScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class PickTopicScreen extends StatelessWidget {
@@ -166,7 +167,9 @@ class PickTopicScreen extends StatelessWidget {
             }),
             28.h.heightBox,
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => SelectPlanScreen());
+              },
               child: Container(
                 height: 50.h,
                 width: 359.w,
