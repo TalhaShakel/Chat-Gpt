@@ -76,7 +76,7 @@ class PickTopicScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(MainController());
+    // var controller = Get.put(MainController());
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
@@ -131,6 +131,7 @@ class PickTopicScreen extends StatelessWidget {
             20.h.heightBox,
             GetBuilder<MainController>(builder: (controller) {
               return GridView.count(
+                  physics: ScrollPhysics(),
                   childAspectRatio: (270.w / 69.h),
                   crossAxisCount: 2,
                   mainAxisSpacing: 10,

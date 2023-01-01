@@ -48,7 +48,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(MainController());
+    // var controller = Get.put(MainController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(

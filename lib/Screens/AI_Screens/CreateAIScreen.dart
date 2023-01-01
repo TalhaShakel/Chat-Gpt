@@ -147,7 +147,7 @@ class CreateAIShare extends StatelessWidget {
                         child: AIButton(
                             buttonName: "ADD MORE CREDITS",
                             funcname: () {
-                              Get.to(() => ChatBotScreen());
+                              // Get.to(() => ChatBotScreen());
                             },
                             colorButton: Colors.transparent),
                       ),

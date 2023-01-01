@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Constants/customized_textformfield.dart';
+import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Models/UserModels.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/SignUpScreen.dart';
+import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -50,7 +52,7 @@ class LoginScreen extends StatelessWidget {
             UserModel.fromMap(document.data() as Map<String, dynamic>);
         currentUserData = userdata;
         // Get.to(() => AboutUserInfo());
-        Get.to(() => PickTopicScreen());
+        Get.to(() => BottomNavBarScreen());
 
         //////////////////////////////////
 
@@ -199,6 +201,7 @@ class LoginScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     await signIn();
+                    MainController.instance;
                   },
                   child: Container(
                     height: 50.h,

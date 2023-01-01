@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/Background.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Screens/AI_Screens/ChatbotScreen.dart';
 import 'package:spoot_light/Screens/AI_Screens/CreateAIScreen.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIbutton.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -39,7 +40,9 @@ class AIScreen extends StatelessWidget {
                   //     borderRadius: BorderRadius.all(Radius.circular(70))),
                   child: AIButton(
                       buttonName: "CREATE IMAGES WITH ARTEMIS",
-                      funcname: () {},
+                      funcname: () {
+                        Get.to(() => CreateAIShare());
+                      },
                       colorButton: Colors.transparent),
                 ),
                 60.h.heightBox,
@@ -64,7 +67,9 @@ class AIScreen extends StatelessWidget {
                   decoration: BoxDecoration(color: Colors.transparent),
                   child: AIButton(
                       buttonName: "CHAT WITH MERLIN",
-                      funcname: () {},
+                      funcname: () {
+                        Get.to(() => ChatBotScreen());
+                      },
                       colorButton: Colors.transparent),
                 ),
                 60.h.heightBox,
@@ -89,7 +94,7 @@ class AIScreen extends StatelessWidget {
                   child: AIButton(
                       buttonName: "COMING SOON",
                       funcname: () {
-                        Get.to(() => CreateAIShare());
+                        // Get.to(() => CreateAIShare());
                       },
                       colorButton: Colors.transparent),
                 ),

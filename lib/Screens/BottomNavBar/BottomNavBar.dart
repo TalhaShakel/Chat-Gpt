@@ -8,7 +8,7 @@ import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 
 class BottomNavBarScreen extends StatelessWidget {
   BottomNavBarScreen({super.key});
-  var controller = Get.put(MainController());
+  var _ = MainController.instance;
 
   // int _selectIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
@@ -22,7 +22,7 @@ class BottomNavBarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CountController());
+    // Get.put(CountController());
     return GetBuilder<MainController>(builder: (controller) {
       return Scaffold(
         ///////////////////////////////////////////////////
@@ -112,13 +112,5 @@ class BottomNavBarScreen extends StatelessWidget {
         ),
       );
     });
-  }
-}
-
-class CountController extends GetxController {
-  final _selectedIndex = 0.obs;
-
-  void _onItemTapped(int index, _selectIndex) {
-    _selectIndex = index;
   }
 }

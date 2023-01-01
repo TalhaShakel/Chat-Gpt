@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
+import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
 
 class SplashScrren extends StatefulWidget {
   const SplashScrren({super.key});
@@ -17,7 +20,13 @@ class _SplashScrrenState extends State<SplashScrren> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5), () {
-      Get.to(() => LoginScreen());
+      // User? user;
+      // ever(_user, setInitialScreen);
+      if (fAuth.currentUser == null) {
+        Get.offAll(() => LoginScreen());
+      } else {
+        Get.offAll(() => BottomNavBarScreen());
+      }
     });
   }
 

@@ -35,7 +35,7 @@ class bottomSheetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(MainController());
+    var controller = MainController.instance;
     return Container(
       height: 779.h,
       width: Get.width,
