@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,13 +18,18 @@ class AddNewToDoList extends StatefulWidget {
 class _AddNewToDoListState extends State<AddNewToDoList> {
   TextEditingController _NameController = TextEditingController();
   TextEditingController _dateController = TextEditingController();
-
+  TextEditingController _StartTimeController = TextEditingController();
   TextEditingController _selectTagController = TextEditingController();
+  String _endTime = "Select end time";
+  String _TimeFormat = DateFormat('hh:mm a').format(DateTime.now()).toString();
+  String _startTime = "Select start time";
+  var pickedTime;
+  String _formatedTime = "";
 
   // TextEditingController _languageController = TextEditingController();
   @override
   void dispose() {
-    // _genderController.dispose();
+    _StartTimeController.dispose();
     _NameController.dispose();
     _selectTagController.dispose();
     // _languageController.dispose();
@@ -68,6 +74,7 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
                     20.h.heightBox,
                     "Date".text.size(14.sp).make(),
                     10.h.heightBox,
+
                     Container(
                       height: 50.h,
                       width: 359.w,
@@ -111,19 +118,80 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
                         },
                       ),
                     ),
-                    //////////////////
-
-                    // textfiledcontainer("Select Date", _NameController),
 
                     ////////////////
                     20.h.heightBox,
                     "Start Time".text.size(14.sp).make(),
                     10.h.heightBox,
-                    textfiledcontainer("Select start time", _NameController),
+
+                    Container(
+                      height: 50.h,
+                      width: 359.w,
+                      decoration: BoxDecoration(
+                          color: ConstColors.textfieldColor,
+                          border: Border.all(
+                              width: 1, color: ConstColors.CircleColor),
+                          borderRadius: BorderRadius.all(Radius.circular(11))),
+                      child: TextFormField(
+                        controller: _dateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: ConstColors.textfieldColor,
+                          contentPadding: EdgeInsets.all(10),
+                          border: InputBorder.none,
+                          hintText: _startTime,
+                          hintStyle: TextStyle(color: Colors.black),
+                        ),
+                        onTap: () {
+                          try {
+                            _getTimeFromUser(isStartTime: true);
+                            // print("zahdsisa   object  ----$_startTime");
+                          } catch (e) {
+                            Get.snackbar("${e}", "");
+                          }
+                        },
+                      ),
+                    ),
+
+                    // textfiledcontainer("Select start time", _NameController),
+
                     20.h.heightBox,
                     "End Time".text.size(14.sp).make(),
                     10.h.heightBox,
-                    textfiledcontainer("Select end time", _NameController),
+
+                    Container(
+                      height: 50.h,
+                      width: 359.w,
+                      decoration: BoxDecoration(
+                          color: ConstColors.textfieldColor,
+                          border: Border.all(
+                              width: 1, color: ConstColors.CircleColor),
+                          borderRadius: BorderRadius.all(Radius.circular(11))),
+                      child: TextFormField(
+                        controller: _dateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: ConstColors.textfieldColor,
+                          contentPadding: EdgeInsets.all(10),
+                          border: InputBorder.none,
+                          hintText: _endTime,
+                          hintStyle: TextStyle(color: Colors.black),
+                        ),
+                        onTap: () {
+                          try {
+                            _getTimeFromUser(isStartTime: false);
+                            // print("zahdsisa   object  ----$_startTime");
+                          } catch (e) {
+                            Get.snackbar("${e}", "");
+                          }
+                        },
+                      ),
+                    ),
+
+                    // textfiledcontainer("Select end time", _NameController),
+
                     20.h.heightBox,
                     "Tag People".text.size(14.sp).make(),
                     10.h.heightBox,
@@ -186,5 +254,41 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
         ),
       ),
     );
+  }
+
+  _getTimeFromUser({required bool isStartTime}) async {
+    pickedTime = await _showTimePicker();
+    if (pickedTime == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Color(0xff08296c),
+          content: Text("Time is not selected"),
+        ),
+      );
+    } else {
+      _formatedTime = pickedTime.format(context);
+    }
+
+    if (pickedTime == null) {
+    } else if (isStartTime == true) {
+      setState(() {
+        _startTime = _formatedTime;
+      });
+    } else if (isStartTime == false) {
+      setState(() {
+        _endTime = _formatedTime;
+      });
+    }
+  }
+
+  _showTimePicker() {
+    return showTimePicker(
+        initialEntryMode: TimePickerEntryMode.input,
+        context: context,
+        initialTime: TimeOfDay(
+          //_startTime --> 10:30 AM
+          hour: int.parse(_TimeFormat.split("")[0]),
+          minute: int.parse(_TimeFormat.split("")[1].split(" ")[0]),
+        ));
   }
 }
