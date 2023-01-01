@@ -19,6 +19,7 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
   TextEditingController _NameController = TextEditingController();
   TextEditingController _dateController = TextEditingController();
   TextEditingController _StartTimeController = TextEditingController();
+  TextEditingController _EndTimeController = TextEditingController();
   TextEditingController _selectTagController = TextEditingController();
   String _endTime = "Select end time";
   String _TimeFormat = DateFormat('hh:mm a').format(DateTime.now()).toString();
@@ -32,6 +33,8 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
     _StartTimeController.dispose();
     _NameController.dispose();
     _selectTagController.dispose();
+    _dateController.dispose();
+    _EndTimeController.dispose();
     // _languageController.dispose();
   }
 
@@ -133,7 +136,7 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
                               width: 1, color: ConstColors.CircleColor),
                           borderRadius: BorderRadius.all(Radius.circular(11))),
                       child: TextFormField(
-                        controller: _dateController,
+                        controller: _StartTimeController,
                         readOnly: true,
                         decoration: InputDecoration(
                           filled: true,
@@ -169,7 +172,7 @@ class _AddNewToDoListState extends State<AddNewToDoList> {
                               width: 1, color: ConstColors.CircleColor),
                           borderRadius: BorderRadius.all(Radius.circular(11))),
                       child: TextFormField(
-                        controller: _dateController,
+                        controller: _EndTimeController,
                         readOnly: true,
                         decoration: InputDecoration(
                           filled: true,
