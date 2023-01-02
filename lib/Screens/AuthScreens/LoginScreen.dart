@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
             UserModel.fromMap(document.data() as Map<String, dynamic>);
         currentUserData = userdata;
         // Get.to(() => AboutUserInfo());
-        Get.to(() => BottomNavBarScreen());
+        Get.to(() => MianHomeScreen());
 
         //////////////////////////////////
 

@@ -25,7 +25,7 @@ class _SplashScrrenState extends State<SplashScrren> {
       if (fAuth.currentUser == null) {
         Get.offAll(() => LoginScreen());
       } else {
-        Get.offAll(() => BottomNavBarScreen());
+        Get.offAll(() => MianHomeScreen());
       }
     });
   }

@@ -44,9 +44,8 @@ class SelectPlanScreen extends StatelessWidget {
             ),
 
             GestureDetector(
-              onTap: (){
-        Get.to(() => BottomNavBarScreen());
-                
+              onTap: () {
+                Get.to(() => MianHomeScreen());
               },
               child: Center(
                 child: "Hooray we are done!"
@@ -341,6 +340,4 @@ class SelectPlanScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }
