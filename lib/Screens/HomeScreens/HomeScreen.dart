@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Screens/HomeScreens/DrawerScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/bottomSheet.dart';
+import 'package:spoot_light/Screens/PostScreen/MemorySheet.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -100,7 +101,8 @@ class HomeScreen extends StatelessWidget {
                   60.w.widthBox,
                   GestureDetector(
                     onTap: () {
-                      Get.bottomSheet(bottomSheetScreen());
+                      // Get.bottomSheet(bottomSheetScreen());
+                      Get.bottomSheet(MemorySheet());
                     },
                     child: Container(
                         height: 25.h,
