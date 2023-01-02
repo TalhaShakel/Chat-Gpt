@@ -6,8 +6,8 @@ import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 
-class MianHomeScreen extends StatelessWidget {
-  MianHomeScreen({super.key});
+class MainHomeScreen extends StatelessWidget {
+  MainHomeScreen({super.key});
   var _ = MainController.instance;
 
   // int _selectIndex = 0;

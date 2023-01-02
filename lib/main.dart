@@ -7,12 +7,13 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
-import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
+import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/AddNewtodoList.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.dart';
 import 'package:spoot_light/Screens/OnBoardingScreens/on_boarding_screen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/EditProfile.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/ProfilePopUpScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/SelectPlanScreen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: ProfilePopUp(),
+            home: EditProfile(),
             debugShowCheckedModeBanner: false,
           );
         });

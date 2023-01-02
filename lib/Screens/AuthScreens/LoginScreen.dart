@@ -10,7 +10,7 @@ import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Models/UserModels.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/SignUpScreen.dart';
-import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
+import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:velocity_x/velocity_x.dart';

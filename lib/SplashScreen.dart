@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
-import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
+import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 
 class SplashScrren extends StatefulWidget {
   const SplashScrren({super.key});
@@ -25,7 +25,7 @@ class _SplashScrrenState extends State<SplashScrren> {
       if (fAuth.currentUser == null) {
         Get.offAll(() => LoginScreen());
       } else {
-        Get.offAll(() => MianHomeScreen());
+        Get.offAll(() => MainHomeScreen());
       }
     });
   }

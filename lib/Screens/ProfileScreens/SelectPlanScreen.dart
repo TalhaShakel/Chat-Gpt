@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
+import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class SelectPlanScreen extends StatelessWidget {
@@ -45,7 +45,7 @@ class SelectPlanScreen extends StatelessWidget {
 
             GestureDetector(
               onTap: () {
-                Get.to(() => MianHomeScreen());
+                Get.to(() => MainHomeScreen());
               },
               child: Center(
                 child: "Hooray we are done!"
