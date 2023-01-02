@@ -14,6 +14,7 @@ import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.da
 import 'package:spoot_light/Screens/OnBoardingScreens/on_boarding_screen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/ProfilePopUpScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/SelectPlanScreen.dart';
 import 'package:spoot_light/SplashScreen.dart';
 import 'package:spoot_light/firebase_options.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: SplashScrren(),
+            home: ProfilePopUp(),
             debugShowCheckedModeBanner: false,
           );
         });
