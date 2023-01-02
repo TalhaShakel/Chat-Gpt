@@ -10,6 +10,7 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
+import 'package:spoot_light/Screens/BottomNavBar/BottomNavBar.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -273,7 +274,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                     } catch (e) {
                       Get.snackbar("${e}", "");
                     }
-                    Get.to(() => PickTopicScreen());
+                    Get.to(() => MianHomeScreen());
                   },
                   child: Container(
                     height: 50.h,
