@@ -7,11 +7,13 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
+import 'package:spoot_light/Screens/HomeScreens/ExploreMemoriesScreen.dart';
 import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/AddNewtodoList.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.dart';
 import 'package:spoot_light/Screens/OnBoardingScreens/on_boarding_screen.dart';
+import 'package:spoot_light/Screens/PostScreen/MakeNewFriendScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/EditProfile.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
@@ -36,8 +38,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-   
-
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: EditProfile(),
+            home: ExploreMemoriesScreen(),
             debugShowCheckedModeBanner: false,
           );
         });
