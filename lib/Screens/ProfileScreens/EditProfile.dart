@@ -122,7 +122,9 @@ class EditProfile extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Container(
+                  child: 
+                  
+                  Container(
                     height: 100.h,
                     child: Stack(
                       children: [

@@ -10,6 +10,7 @@ import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioRoomScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceComment.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceScreen.dart';
+import 'package:spoot_light/Screens/AudioRoomScreens/MyAudioRoomHost.dart';
 import 'package:spoot_light/Screens/HomeScreens/ExploreMemoriesScreen.dart';
 import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: AudioSpaceComment(),
+            home: MyAudioRoomHost(),
             debugShowCheckedModeBanner: false,
           );
         });

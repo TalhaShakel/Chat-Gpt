@@ -121,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    // errorText: _errorText,
+                    
                   ),
                 ),
                 30.h.heightBox,

@@ -96,8 +96,107 @@ class AudioSpaceComment extends StatelessWidget {
               ],
             ),
             Divider(),
+            20.h.heightBox,
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.vertical,
+            //   child: Column(
+            //     children: [
+            ProfileComment(),
+            ProfileComment(),
+            ProfileComment(),
+            // ProfileComment(),
+            //     ],
+            //   ),
+            // ),
+            66.h.heightBox,
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(children: [
+                  Container(
+                    width: 270.w,
+                    height: 40.h,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: ConstColors.textfieldColor,
+                        prefixIcon: Icon(
+                          Icons.emoji_emotions_outlined,
+                          color: Colors.grey,
+                        ),
+                        contentPadding: EdgeInsets.all(10),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: ConstColors.CircleColor, width: 1),
+                          borderRadius: BorderRadius.circular(68),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: ConstColors.textfieldColor),
+                          borderRadius: BorderRadius.circular(68),
+                        ),
+                        hintText: "Add a comment...",
+                        hintStyle: TextStyle(color: Color(0xffAAAAAA)),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(68),
+                        ),
+                        // errorText: _errorText,
+                      ),
+                    ),
+                  ),
+                  9.w.widthBox,
+                  Container(
+                    height: 40.h,
+                    width: 40.w,
+                    decoration: BoxDecoration(
+                        color: Colors.black, shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.play_arrow_outlined,
+                      color: Colors.white,
+                      size: 25.sp,
+                    ),
+                  ),
+                ]),
+              ),
+            ),
+            20.h.heightBox,
           ],
         ),
+      ),
+    );
+  }
+
+  Padding ProfileComment() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5.w),
+      child: ListTile(
+        leading: Container(
+          height: 43.h,
+          width: 43.w,
+          child: CircleAvatar(
+            backgroundImage: AssetImage("assets/pp.png"),
+            // radius: 43.r,
+          ),
+        ),
+        title: RichText(
+          text: TextSpan(
+              text: 'Lana',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.sp),
+              children: [
+                TextSpan(
+                  text:
+                      " Hai, whats’up bro. hayu atuh hangout dei jang Hai, whats’up bro. hayu atuh hangout dei jang ",
+                  style: TextStyle(
+                      color: Color(0xff525252),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp),
+                )
+              ]),
+        ),
+        // subtitle: Text(),
       ),
     );
   }
