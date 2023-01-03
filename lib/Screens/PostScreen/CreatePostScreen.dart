@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Screens/PostScreen/CreateAudioRoomScreen.dart';
+import 'package:spoot_light/Screens/PostScreen/CreateAnAudio1.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CreatePostScreen extends StatelessWidget {
@@ -159,7 +159,7 @@ class CreatePostScreen extends StatelessWidget {
                     152.h.heightBox,
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => CreateAudioRoom());
+                        Get.to(() => CreateAudioRoom1());
                       },
                       child: Container(
                         height: 50.h,

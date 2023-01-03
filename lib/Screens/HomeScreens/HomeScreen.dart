@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Screens/HomeScreens/DrawerScreen.dart';
-import 'package:spoot_light/Screens/HomeScreens/bottomSheet.dart';
+import 'package:spoot_light/Screens/HomeScreens/HomebottomSheet.dart';
 import 'package:spoot_light/Screens/PostScreen/MemorySheet.dart';
 import 'package:velocity_x/velocity_x.dart';
 

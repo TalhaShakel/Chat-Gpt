@@ -52,9 +52,10 @@ class MakeNewFriends extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     22.h.heightBox,
+
                     Container(
                       height: 40.h,
-                      child: TextFormField(
+                      child: TextField(
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: ConstColors.textfieldColor,
@@ -89,6 +90,7 @@ class MakeNewFriends extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     ////////////////////////////////////////
                     20.h.heightBox,
                     Container(

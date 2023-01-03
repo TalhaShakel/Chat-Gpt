@@ -4,20 +4,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Screens/PostScreen/AddPeopleAudioRoom.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class CreateAudioRoom extends StatelessWidget {
-  CreateAudioRoom({super.key});
+class CreateAnAudioRoom2 extends StatelessWidget {
+  CreateAnAudioRoom2({super.key});
 
   TextEditingController _titleController = TextEditingController();
-  TextEditingController _topicController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
 
   @override
   void dispose() {
     _titleController.dispose();
-    _topicController.dispose();
     _descriptionController.dispose();
   }
 
@@ -129,37 +126,7 @@ class CreateAudioRoom extends StatelessWidget {
                         ),
                       ),
                     ),
-                    20.h.heightBox,
-                    Text(
-                      "Topic",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: 14.sp),
-                    ),
-                    10.h.heightBox,
-                    TextField(
-                      controller: _topicController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: ConstColors.textfieldColor,
-                        contentPadding: EdgeInsets.all(10),
-                        // prefix:
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: ConstColors.CircleColor, width: 1),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: ConstColors.textfieldColor),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: "",
-                        hintStyle: TextStyle(color: Colors.black),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
+
                     20.h.heightBox,
                     Text(
                       "Description",
@@ -199,7 +166,7 @@ class CreateAudioRoom extends StatelessWidget {
                     25.h.heightBox,
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => AddPeopleAudioRoom());
+                        // Get.to(() => AddPeopleAudioRoom());
                       },
                       child: Container(
                         height: 50.h,
@@ -214,7 +181,7 @@ class CreateAudioRoom extends StatelessWidget {
                                 BorderRadius.all(Radius.circular(11))),
                         child: Center(
                           child: Text(
-                            "Add people",
+                            "CREATE AND AUDIO ROOM",
                             style: TextStyle(
                                 fontSize: 13.sp, fontWeight: FontWeight.w800),
                           ),

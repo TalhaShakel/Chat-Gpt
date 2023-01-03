@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
-import 'package:spoot_light/Screens/PostScreen/AudioRoomScreen.dart';
+import 'package:spoot_light/Screens/PostScreen/CreateAnAudio2.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AddPeopleAudioRoom extends StatefulWidget {
@@ -37,7 +37,7 @@ class _AddPeopleAudioRoomState extends State<AddPeopleAudioRoom> {
           actions: [
             GestureDetector(
               onTap: () {
-                Get.to(() => AudioRoomScreen());
+                Get.to(() => CreateAnAudioRoom2());
               },
               child: Center(
                 child: Text(

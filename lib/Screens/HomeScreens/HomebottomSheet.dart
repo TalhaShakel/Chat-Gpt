@@ -5,8 +5,8 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class bottomSheetScreen extends StatelessWidget {
-  bottomSheetScreen({
+class HomebottomSheet extends StatelessWidget {
+  HomebottomSheet({
     Key? key,
   }) : super(key: key);
   ////////////topics list

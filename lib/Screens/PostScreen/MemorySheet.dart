@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/PostScreen/AddMemoryScreen.dart';
-import 'package:spoot_light/Screens/PostScreen/CreateAudioRoomScreen.dart';
+import 'package:spoot_light/Screens/PostScreen/CreateAnAudio1.dart';
 import 'package:spoot_light/Screens/PostScreen/CreatePostScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -51,7 +51,7 @@ class MemorySheet extends StatelessWidget {
             20.h.heightBox,
             GestureDetector(
                 onTap: () {
-                  Get.to(() => CreateAudioRoom());
+                  Get.to(() => CreateAudioRoom1());
                 },
                 child: _sheetContainer(
                     Icon(Icons.audiotrack), "Create an audio room")),
