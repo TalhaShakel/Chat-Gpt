@@ -25,9 +25,11 @@ import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/EditProfile.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/ProfilePopUpScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/ProfileScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/SelectPlanScreen.dart';
 import 'package:spoot_light/SplashScreen.dart';
 import 'package:spoot_light/firebase_options.dart';
+import 'package:spoot_light/testeditprofile.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: NotificationScreen(),
+            home: ProfileScreen(),
             debugShowCheckedModeBanner: false,
           );
         });

@@ -196,7 +196,7 @@ class RoomChatScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.topRight,
                       child: ListTile(
-                        leading: Container(
+                        trailing: Container(
                           height: 24.h,
                           width: 24.w,
                           child: CircleAvatar(

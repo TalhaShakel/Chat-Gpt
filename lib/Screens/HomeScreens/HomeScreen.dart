@@ -132,6 +132,8 @@ class HomeScreen extends StatelessWidget {
               12.h.heightBox,
               "Feed".text.size(22.sp).fontWeight(FontWeight.w600).make(),
               30.h.heightBox,
+              
+              
               Container(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,6 +297,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              
+              
               10.h.heightBox,
             ],
           ),
