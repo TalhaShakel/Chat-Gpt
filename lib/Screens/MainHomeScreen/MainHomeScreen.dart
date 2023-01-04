@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
+import 'package:spoot_light/Screens/AudioRoomScreens/AudioRoomScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/NotificationScreen.dart';
 
@@ -16,7 +17,7 @@ class MainHomeScreen extends StatelessWidget {
     HomeScreen(),
     NotificationScreen(),
     AIScreen(),
-    HomeScreen(),
+    AudioRoomScreen(),
     HomeScreen(),
   ];
 

@@ -208,168 +208,6 @@ class ProfileScreen extends StatelessWidget {
                                     BorderRadius.all(Radius.circular(11))),
                           ),
                           30.h.heightBox,
-                          Container(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 37.h,
-                                  width: 34.w,
-                                  child: Image.asset("assets/pp.png"),
-                                ),
-                                11.w.widthBox,
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Allison Becker",
-                                          // overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.black),
-                                        ),
-                                        9.w.widthBox,
-                                        Text(
-                                          "12m",
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.grey),
-                                        ),
-                                        // 40.w.widthBox,
-                                      ],
-                                    ),
-                                    3.h.heightBox,
-                                    Container(
-                                      height: 34.h,
-                                      width: 230.w,
-                                      child:
-                                          "Today I've amazing moment, when I went to my office, I found my old watch in the ..."
-                                              .text
-                                              .color(Colors.black)
-                                              .softWrap(true)
-                                              // .overflow(TextOverflow.ellipsis)
-                                              .make(),
-                                    ),
-
-                                    // Text(
-                                    //   "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
-                                    //   style: TextStyle(
-                                    //       fontSize: 12.sp,
-                                    //       fontWeight: FontWeight.w500,
-                                    //       color: Colors.black),
-                                    //   softWrap: true,
-                                    //   overflow: TextOverflow.ellipsis,
-                                    // ),
-
-                                    15.h.heightBox,
-                                    Container(
-                                        height: 216.h,
-                                        width: 250.w,
-                                        child: Image.asset(
-                                          "assets/post.png",
-                                          fit: BoxFit.cover,
-                                        )),
-                                    10.h.heightBox,
-                                    Row(
-                                      children: [
-                                        Container(
-                                            height: 15.h,
-                                            width: 15.w,
-                                            child: Image.asset(
-                                              "assets/lk.png",
-                                              color: ConstColors.IconColor,
-                                            )),
-                                        // Icon(
-                                        //   Icons.thumb_up_outlined,
-                                        //   color: Color(0xff6B6D7D),
-                                        //   size: 20,
-                                        // ),
-                                        5.w.widthBox,
-                                        Text(
-                                          "1201",
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: ConstColors.IconColor),
-                                        ),
-                                        29.w.widthBox,
-                                        // Icon(
-                                        //   Icons.thumb_up_outlined,
-                                        //   color: Color(0xff6B6D7D),
-                                        //   size: 20,
-                                        // ),
-                                        Container(
-                                            height: 15.h,
-                                            width: 15.w,
-                                            child: Image.asset(
-                                              "assets/ms.png",
-                                              color: ConstColors.IconColor,
-                                            )),
-
-                                        5.w.widthBox,
-                                        Text(
-                                          "24",
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: ConstColors.IconColor),
-                                        ),
-                                        29.w.widthBox,
-                                        // Icon(
-                                        //   Icons.thumb_up_outlined,
-                                        //   color: Color(0xff6B6D7D),
-                                        //   size: 20,
-                                        // ),
-                                        Container(
-                                            height: 15.h,
-                                            width: 15.w,
-                                            child: Image.asset(
-                                              "assets/sh.png",
-                                              color: ConstColors.IconColor,
-                                            )),
-                                        5.w.widthBox,
-                                        Text(
-                                          "Share",
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: ConstColors.IconColor),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                PopupMenuButton(
-                                  icon: Icon(
-                                    Icons.more_horiz_outlined,
-                                    color: Colors.grey,
-                                    size: 30,
-                                  ),
-                                  itemBuilder: (context) {
-                                    return [
-                                      PopupMenuItem(
-                                        value: 'edit',
-                                        child: Text('Edit'),
-                                      ),
-                                      PopupMenuItem(
-                                        value: 'delete',
-                                        child: Text('Delete'),
-                                      )
-                                    ];
-                                  },
-                                  onSelected: (String value) {
-                                    print('You Click on po up menu item');
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     )
@@ -423,6 +261,170 @@ class ProfileScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600),
           ),
         ),
+      ),
+    );
+  }
+
+  feedContainer() {
+    Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 37.h,
+            width: 34.w,
+            child: Image.asset("assets/pp.png"),
+          ),
+          11.w.widthBox,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Allison Becker",
+                    // overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                  9.w.widthBox,
+                  Text(
+                    "12m",
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey),
+                  ),
+                  // 40.w.widthBox,
+                ],
+              ),
+              3.h.heightBox,
+              Container(
+                height: 34.h,
+                width: 230.w,
+                child:
+                    "Today I've amazing moment, when I went to my office, I found my old watch in the ..."
+                        .text
+                        .color(Colors.black)
+                        .softWrap(true)
+                        // .overflow(TextOverflow.ellipsis)
+                        .make(),
+              ),
+
+              // Text(
+              //   "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
+              //   style: TextStyle(
+              //       fontSize: 12.sp,
+              //       fontWeight: FontWeight.w500,
+              //       color: Colors.black),
+              //   softWrap: true,
+              //   overflow: TextOverflow.ellipsis,
+              // ),
+
+              15.h.heightBox,
+              Container(
+                  height: 216.h,
+                  width: 250.w,
+                  child: Image.asset(
+                    "assets/post.png",
+                    fit: BoxFit.cover,
+                  )),
+              10.h.heightBox,
+              Row(
+                children: [
+                  Container(
+                      height: 15.h,
+                      width: 15.w,
+                      child: Image.asset(
+                        "assets/lk.png",
+                        color: ConstColors.IconColor,
+                      )),
+                  // Icon(
+                  //   Icons.thumb_up_outlined,
+                  //   color: Color(0xff6B6D7D),
+                  //   size: 20,
+                  // ),
+                  5.w.widthBox,
+                  Text(
+                    "1201",
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: ConstColors.IconColor),
+                  ),
+                  29.w.widthBox,
+                  // Icon(
+                  //   Icons.thumb_up_outlined,
+                  //   color: Color(0xff6B6D7D),
+                  //   size: 20,
+                  // ),
+                  Container(
+                      height: 15.h,
+                      width: 15.w,
+                      child: Image.asset(
+                        "assets/ms.png",
+                        color: ConstColors.IconColor,
+                      )),
+
+                  5.w.widthBox,
+                  Text(
+                    "24",
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: ConstColors.IconColor),
+                  ),
+                  29.w.widthBox,
+                  // Icon(
+                  //   Icons.thumb_up_outlined,
+                  //   color: Color(0xff6B6D7D),
+                  //   size: 20,
+                  // ),
+                  Container(
+                      height: 15.h,
+                      width: 15.w,
+                      child: Image.asset(
+                        "assets/sh.png",
+                        color: ConstColors.IconColor,
+                      )),
+                  5.w.widthBox,
+                  Text(
+                    "Share",
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: ConstColors.IconColor),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          PopupMenuButton(
+            icon: Icon(
+              Icons.more_horiz_outlined,
+              color: Colors.grey,
+              size: 30,
+            ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  value: 'edit',
+                  child: Text('Edit'),
+                ),
+                PopupMenuItem(
+                  value: 'delete',
+                  child: Text('Delete'),
+                )
+              ];
+            },
+            onSelected: (String value) {
+              print('You Click on po up menu item');
+            },
+          ),
+        ],
       ),
     );
   }
