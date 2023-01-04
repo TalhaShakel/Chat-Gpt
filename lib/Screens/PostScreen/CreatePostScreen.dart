@@ -25,7 +25,7 @@ class CreatePostScreen extends StatelessWidget {
         backgroundColor: Color(0xff1d2931),
         elevation: 0,
         title: Text(
-          "Add A Memory",
+          "Create a post",
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp),
         ),
         leading: GestureDetector(
@@ -159,7 +159,8 @@ class CreatePostScreen extends StatelessWidget {
                     152.h.heightBox,
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => CreateAudioRoom1());
+                        // Get.to(() => CreateAudioRoom1());
+                        Get.back();
                       },
                       child: Container(
                         height: 50.h,

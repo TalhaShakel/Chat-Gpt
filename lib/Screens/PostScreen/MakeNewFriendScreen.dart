@@ -93,57 +93,69 @@ class MakeNewFriends extends StatelessWidget {
 
                     ////////////////////////////////////////
                     20.h.heightBox,
-                    Container(
-                      height: 192.h,
-                      width: 165.w,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/mf.png"),
-                              fit: BoxFit.cover),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(15.r))),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            height: 26.h,
-                            width: 83.w,
+
+                    GridView.count(
+                        // childAspectRatio: (270.w / 300.h),
+                        physics: ScrollPhysics(),
+                        shrinkWrap: true,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 19,
+                        crossAxisSpacing: 19,
+                        scrollDirection: Axis.vertical,
+                        children: List.generate(6, (index) {
+                          return Container(
+                            height: 192.h,
+                            width: 165.w,
                             decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                border: Border.all(color: Colors.white),
+                                image: DecorationImage(
+                                    image: AssetImage("assets/mf.png"),
+                                    fit: BoxFit.cover),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(33.r))),
-                            child: Center(
-                              child: Text(
-                                "16 KM Away",
-                                style: TextStyle(
-                                    fontSize: 11.sp,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500),
-                              ),
+                                    BorderRadius.all(Radius.circular(15.r))),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  height: 26.h,
+                                  width: 83.w,
+                                  decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      border: Border.all(color: Colors.white),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(33.r))),
+                                  child: Center(
+                                    child: Text(
+                                      "16 KM Away",
+                                      style: TextStyle(
+                                          fontSize: 11.sp,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                ),
+                                7.h.heightBox,
+                                Text(
+                                  "Dina Ammy",
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  "BERLIN",
+                                  style: TextStyle(
+                                      letterSpacing: 8,
+                                      fontSize: 12.sp,
+                                      color: Color(0xffC0C0C0),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                10.h.heightBox,
+                              ],
                             ),
-                          ),
-                          7.h.heightBox,
-                          Text(
-                            "Dina Ammy",
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "BERLIN",
-                            style: TextStyle(
-                                letterSpacing: 8,
-                                fontSize: 12.sp,
-                                color: Color(0xffC0C0C0),
-                                fontWeight: FontWeight.w600),
-                          ),
-                          10.h.heightBox,
-                        ],
-                      ),
-                    ),
+                          );
+                        })),
+
                     ///////////////////////////
                     Expanded(
                       child: Align(

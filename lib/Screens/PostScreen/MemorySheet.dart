@@ -8,6 +8,7 @@ import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/PostScreen/AddMemoryScreen.dart';
 import 'package:spoot_light/Screens/PostScreen/CreateAnAudio1.dart';
 import 'package:spoot_light/Screens/PostScreen/CreatePostScreen.dart';
+import 'package:spoot_light/Screens/PostScreen/MakeNewFriendScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MemorySheet extends StatelessWidget {
@@ -56,7 +57,12 @@ class MemorySheet extends StatelessWidget {
                 child: _sheetContainer(
                     Icon(Icons.audiotrack), "Create an audio room")),
             20.h.heightBox,
-            _sheetContainer(Icon(Icons.person_add_alt), "Make new friends"),
+            GestureDetector(
+                onTap: () {
+                  Get.to(() => MakeNewFriends());
+                },
+                child: _sheetContainer(
+                    Icon(Icons.person_add_alt), "Make new friends")),
             20.h.heightBox,
             _sheetContainer(Icon(Icons.photo_album), "Generate an image"),
           ]),

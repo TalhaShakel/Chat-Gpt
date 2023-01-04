@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CreateAnAudioRoom2 extends StatelessWidget {
@@ -163,10 +164,16 @@ class CreateAnAudioRoom2 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    25.h.heightBox,
+                    91.h.heightBox,
                     GestureDetector(
                       onTap: () {
-                        // Get.to(() => AddPeopleAudioRoom());
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.grey,
+                            content: Text("Comming Soon !!!!"),
+                          ),
+                        );
+                        // Get.to(() => MainHomeScreen());
                       },
                       child: Container(
                         height: 50.h,

@@ -35,12 +35,13 @@ class EditProfile extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        body: Container(
-            color: Colors.black,
-            child: Stack(
-              children: [
-                SingleChildScrollView(
-                  child: Column(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              100.h.heightBox,
+              Stack(
+                children: [
+                  Column(
                     children: [
                       50.h.heightBox,
                       Container(
@@ -119,63 +120,63 @@ class EditProfile extends StatelessWidget {
                           )),
                     ],
                   ),
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: 
-                  
-                  Container(
-                    height: 100.h,
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 87.h,
-                            width: 81.w,
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 3, color: Colors.grey),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(28.r))),
-                          ),
-                        ),
-                        Center(
-                          child: Container(
-                            height: 81.h,
-                            width: 74.w,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(28.r))),
-                            child: Image.asset("assets/pro.png"),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 50,
-                          right: 50,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Center(
-                              child: Container(
-                                  height: 23.h,
-                                  width: 19.w,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      shape: BoxShape.circle),
-                                  child: Icon(
-                                    Icons.camera_alt_outlined,
-                                    color: Colors.white,
-                                    size: 15.sp,
-                                  )),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      height: 100.h,
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 87.h,
+                              width: 81.w,
+                              decoration: BoxDecoration(
+                                  border:
+                                      Border.all(width: 3, color: Colors.grey),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(28.r))),
                             ),
                           ),
-                        ),
-                      ],
+                          Center(
+                            child: Container(
+                              height: 81.h,
+                              width: 74.w,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(28.r))),
+                              child: Image.asset("assets/pro.png"),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            left: 50,
+                            right: 50,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Center(
+                                child: Container(
+                                    height: 23.h,
+                                    width: 19.w,
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        shape: BoxShape.circle),
+                                    child: Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: Colors.white,
+                                      size: 15.sp,
+                                    )),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
