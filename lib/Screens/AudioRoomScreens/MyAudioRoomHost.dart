@@ -107,6 +107,50 @@ class MyAudioRoomHost extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp),
                     ),
+                    20.h.heightBox,
+                    GridView.count(
+                        // childAspectRatio: (270.w / 300.h),
+                        physics: ScrollPhysics(),
+                        shrinkWrap: true,
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 40,
+                        crossAxisSpacing: 20,
+                        scrollDirection: Axis.vertical,
+                        children: List.generate(12, (index) {
+                          return Column(
+                            children: [
+                              Container(
+                                height: 81.h,
+                                width: 73.w,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(12.r))),
+                                child:
+                                    Center(child: Image.asset("assets/fu.png")),
+                              ),
+                              12.h.heightBox,
+                              Text(
+                                "Suami Orangs",
+                                style: TextStyle(
+                                    color: Color(0xff979797),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 10.sp),
+                              ),
+                            ],
+                          );
+                        })),
+                    // Expanded(
+                    //   child: Align(
+                    //       alignment: Alignment.bottomCenter,
+                    //       child: Container(
+                    //         height: 80.h,
+                    //         width: Get.width,
+                    //         color: Colors.black,
+                    //         child: Row(
+                    //           children: [],
+                    //         ),
+                    //       )),
+                    // )
                   ],
                 ),
               )),

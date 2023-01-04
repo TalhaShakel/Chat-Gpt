@@ -5,6 +5,7 @@ import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Controller/Maincontrollers.dart';
 import 'package:spoot_light/Screens/AI_Screens/AIScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomeScreen.dart';
+import 'package:spoot_light/Screens/HomeScreens/NotificationScreen.dart';
 
 class MainHomeScreen extends StatelessWidget {
   MainHomeScreen({super.key});
@@ -13,8 +14,7 @@ class MainHomeScreen extends StatelessWidget {
   // int _selectIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    HomeScreen(),
-    // HomeScreen(),
+    NotificationScreen(),
     AIScreen(),
     HomeScreen(),
     HomeScreen(),

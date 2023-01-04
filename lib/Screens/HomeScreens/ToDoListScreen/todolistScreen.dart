@@ -12,31 +12,109 @@ class ToDoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xff1d2931),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
+    return Scaffold(
+      backgroundColor: Color(0xff1d2931),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  56.h.heightBox,
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                  ),
+                  40.h.heightBox,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 84.w,
+                        height: 29.h,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: ConstColors.btnColor),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(43.r))),
+                        child: Center(
+                            child: "Today"
+                                .text
+                                .size(12.sp)
+                                .fontWeight(FontWeight.w600)
+                                .make()),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => AddNewToDoList());
+                        },
+                        child: Container(
+                          height: 40.h,
+                          width: 40.w,
+                          decoration: BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: Center(
+                              child: Icon(
+                            Icons.add,
+                            size: 25,
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                  30.h.heightBox,
+                  "Tuesday"
+                      .text
+                      .fontWeight(FontWeight.w600)
+                      .size(16.sp)
+                      .color(Color(0xff6C6C6C))
+                      .make(),
+                  20.h.heightBox,
+                  Center(
+                    child: "12 DEC To Do List"
+                        .text
+                        .fontWeight(FontWeight.w600)
+                        .size(32.sp)
+                        .color(Colors.white)
+                        .make(),
+                  ),
+                  20.h.heightBox,
+                ],
+              ),
+            ),
+            Container(
+              height: Get.height.h,
+              width: Get.width.w,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(50.0),
+                    topLeft: Radius.circular(50.0)),
+              ),
+              child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    56.h.heightBox,
-                    GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                      ),
-                    ),
-                    40.h.heightBox,
+                    27.h.heightBox,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        "Today tasks"
+                            .text
+                            .fontWeight(FontWeight.w600)
+                            .size(16.sp)
+                            .color(Colors.black)
+                            .make(),
                         Container(
                           width: 84.w,
                           height: 29.h,
@@ -48,102 +126,22 @@ class ToDoList extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(43.r))),
                           child: Center(
-                              child: "Today"
+                              child: "Reminder"
                                   .text
                                   .size(12.sp)
                                   .fontWeight(FontWeight.w600)
                                   .make()),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => AddNewToDoList());
-                          },
-                          child: Container(
-                            height: 40.h,
-                            width: 40.w,
-                            decoration: BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
-                            child: Center(
-                                child: Icon(
-                              Icons.add,
-                              size: 25,
-                            )),
-                          ),
-                        ),
                       ],
                     ),
-                    30.h.heightBox,
-                    "Tuesday"
-                        .text
-                        .fontWeight(FontWeight.w600)
-                        .size(16.sp)
-                        .color(Color(0xff6C6C6C))
-                        .make(),
-                    20.h.heightBox,
-                    Center(
-                      child: "12 DEC To Do List"
-                          .text
-                          .fontWeight(FontWeight.w600)
-                          .size(32.sp)
-                          .color(Colors.white)
-                          .make(),
-                    ),
-                    20.h.heightBox,
+                    28.h.heightBox,
+                    planContainer("You Have A Meeting", Color(0xffE1BB72),
+                        Color(0xff6C4510))
                   ],
                 ),
               ),
-              Container(
-                height: Get.height.h,
-                width: Get.width.w,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(50.0),
-                      topLeft: Radius.circular(50.0)),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      27.h.heightBox,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          "Today tasks"
-                              .text
-                              .fontWeight(FontWeight.w600)
-                              .size(16.sp)
-                              .color(Colors.black)
-                              .make(),
-                          Container(
-                            width: 84.w,
-                            height: 29.h,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: ConstColors.btnColor),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(43.r))),
-                            child: Center(
-                                child: "Reminder"
-                                    .text
-                                    .size(12.sp)
-                                    .fontWeight(FontWeight.w600)
-                                    .make()),
-                          ),
-                        ],
-                      ),
-                      28.h.heightBox,
-                      planContainer("You Have A Meeting", Color(0xffE1BB72),
-                          Color(0xff6C4510))
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
