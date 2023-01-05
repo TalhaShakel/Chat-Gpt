@@ -67,12 +67,14 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
                 26.h.heightBox,
-                Text(
-                  "Michael Lurk ",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 32.sp,
-                      fontWeight: FontWeight.w800),
+                Center(
+                  child: Text(
+                    "Michael Lurk ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.w800),
+                  ),
                 ),
                 22.h.heightBox,
                 Padding(
@@ -187,6 +189,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     Container(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Feed",
@@ -210,9 +213,53 @@ class ProfileScreen extends StatelessWidget {
                           30.h.heightBox,
                         ],
                       ),
+                    ),
+                    116.w.widthBox,
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "AI",
+                            style: TextStyle(
+                                // color: Color(0xffA7A7A7),
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          4.h.heightBox,
+                          Container(
+                            height: 3.h,
+                            width: 15.w,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: ConstColors.btnColor),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(11))),
+                          ),
+                          30.h.heightBox,
+                        ],
+                      ),
                     )
                   ],
-                )
+                ),
+                //////////////////////////////////////////
+
+                // feedContainer(),
+
+                Container(
+                  height: 132.h,
+                  width: 110.w,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      "assets/c2.png",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                20.h.heightBox,
               ],
             ),
           ),
@@ -266,7 +313,7 @@ class ProfileScreen extends StatelessWidget {
   }
 
   feedContainer() {
-    Container(
+    return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -281,6 +328,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Allison Becker",
@@ -298,6 +346,28 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Colors.grey),
                   ),
+                  PopupMenuButton(
+                    child: Icon(
+                      Icons.more_horiz_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          value: 'edit',
+                          child: Text('Edit'),
+                        ),
+                        PopupMenuItem(
+                          value: 'delete',
+                          child: Text('Delete'),
+                        )
+                      ];
+                    },
+                    onSelected: (String value) {
+                      print('You Click on po up menu item');
+                    },
+                  ),
                   // 40.w.widthBox,
                 ],
               ),
@@ -310,6 +380,8 @@ class ProfileScreen extends StatelessWidget {
                         .text
                         .color(Colors.black)
                         .softWrap(true)
+                        .size(12.sp)
+                        .fontWeight(FontWeight.w500)
                         // .overflow(TextOverflow.ellipsis)
                         .make(),
               ),
@@ -401,28 +473,6 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ],
-          ),
-          PopupMenuButton(
-            icon: Icon(
-              Icons.more_horiz_outlined,
-              color: Colors.grey,
-              size: 30,
-            ),
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem(
-                  value: 'edit',
-                  child: Text('Edit'),
-                ),
-                PopupMenuItem(
-                  value: 'delete',
-                  child: Text('Delete'),
-                )
-              ];
-            },
-            onSelected: (String value) {
-              print('You Click on po up menu item');
-            },
           ),
         ],
       ),

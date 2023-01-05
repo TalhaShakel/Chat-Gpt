@@ -69,6 +69,7 @@ class AudioSpaceComment extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             13.h.heightBox,
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -95,6 +96,7 @@ class AudioSpaceComment extends StatelessWidget {
                 )
               ],
             ),
+            
             Divider(),
             20.h.heightBox,
             // SingleChildScrollView(

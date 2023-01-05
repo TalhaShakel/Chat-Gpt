@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CommentsScreen extends StatelessWidget {
@@ -8,15 +10,52 @@ class CommentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: backgroundcolor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 0.1),
+        elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
-        leading: Icon(Icons.arrow_back),
-        title: "Micheal Lurk".text.make(),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Comment",
+              style: TextStyle(
+                  fontSize: 20.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500),
+            ),
+            9.w.widthBox,
+            Container(
+              height: 19.h,
+              width: 19.w,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: ConstColors.CircleColor),
+              child: Center(
+                child: Text(
+                  "23",
+                  style: TextStyle(
+                      color: Color(0xff6B6D7D),
+                      fontSize: 10.sp,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
       body: Column(
         children: [
+          25.h.heightBox,
           comment_tab(),
           Padding(
             padding: EdgeInsets.only(left: Get.width / 9),
@@ -40,33 +79,59 @@ class CommentsScreen extends StatelessWidget {
 
   ListTile comment_tab() {
     return ListTile(
-      leading: Image.asset("assets/comentuser.png"),
-      title: "Lana".text.size(14).white.make(),
-      subtitle: Column(
-        children: [
-          "Hai, whats’up bro. hayu atuh hangout dei jang Sabrina"
-              .text
-              .size(12)
-              .white
-              .make(),
-          Row(
+      leading: Container(
+        height: 43.h,
+        width: 43.w,
+        child: CircleAvatar(
+          backgroundImage: AssetImage("assets/pp.png"),
+          // radius: 43.r,
+        ),
+      ),
+      title: RichText(
+        text: TextSpan(
+            text: 'Lana',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 16.sp),
             children: [
-              "12m"
-                  .text
-                  .color(Color.fromRGBO(168, 168, 168, 1))
-                  .size(10)
-                  // .white
-                  .make(),
-              8.widthBox,
-              "Reply"
-                  .text
-                  .size(10)
-                  .color(Color.fromRGBO(168, 168, 168, 1))
-                  // .white
-                  .make(),
-            ],
-          ),
-        ],
+              //TextSpan(),
+              TextSpan(
+                text:
+                    " Hai, whats’up bro. hayu atuh hangout dei jang Hai, whats’up bro. hayu atuh hangout dei jang ",
+                style: TextStyle(
+                    color: Color(0xff525252),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12.sp),
+              )
+            ]),
+      ),
+      subtitle: Padding(
+        padding: EdgeInsets.symmetric(vertical: 5.w),
+        child: Row(
+          children: [
+            "Like"
+                .text
+                .color(Colors.black)
+                .size(10.sp)
+                // .white
+                .make(),
+            12.w.widthBox,
+            "12m"
+                .text
+                .color(Colors.black)
+                .size(10.sp)
+                // .white
+                .make(),
+            12.w.widthBox,
+            "Reply"
+                .text
+                .size(10.sp)
+                .color(Colors.black)
+                // .white
+                .make(),
+          ],
+        ),
       ),
     );
   }

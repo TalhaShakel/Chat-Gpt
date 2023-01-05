@@ -88,6 +88,7 @@ class ChatScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     19.h.heightBox,
+
                     Container(
                       height: 48.h,
                       width: 350.w,
@@ -139,7 +140,14 @@ class ChatScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                   
+                   
+                   
+                   
+                   
                     230.h.heightBox,
+
+
                   ],
                 ),
               ),
