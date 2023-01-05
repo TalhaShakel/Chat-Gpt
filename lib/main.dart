@@ -12,6 +12,7 @@ import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceComment.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/MyAudioRoomHost.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/RoomChatScreen.dart';
+import 'package:spoot_light/Screens/Chat/ChatAllMessage.dart';
 import 'package:spoot_light/Screens/Chat/ChatScreen.dart';
 import 'package:spoot_light/Screens/Comments/Comments.dart';
 import 'package:spoot_light/Screens/Followers/FollowerScreen.dart';
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: SubscribersScreen(),
+            home: ChatAllMessages(),
             debugShowCheckedModeBanner: false,
           );
         });

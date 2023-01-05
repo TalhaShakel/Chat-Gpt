@@ -88,7 +88,6 @@ class ChatScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     19.h.heightBox,
-
                     Container(
                       height: 48.h,
                       width: 350.w,
@@ -140,14 +139,35 @@ class ChatScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                   
-                   
-                   
-                   
-                   
                     230.h.heightBox,
-
-
+                    Center(
+                      child: Text(
+                        "Start a new Conversation",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 18.sp),
+                      ),
+                    ),
+                    17.h.heightBox,
+                    Center(
+                      child: Text(
+                        "When you have messages",
+                        softWrap: true,
+                        style: TextStyle(
+                            color: Color(0xff91909A),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        "you’ll see them here.",
+                        softWrap: true,
+                        style: TextStyle(
+                            color: Color(0xff91909A),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp),
+                      ),
+                    ),
                   ],
                 ),
               ),

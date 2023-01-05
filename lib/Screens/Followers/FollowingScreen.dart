@@ -98,6 +98,7 @@ class FollowingScreen extends StatelessWidget {
                       ),
                       ////////////
                       29.h.heightBox,
+
                       ListTile(
                         leading: Container(
                           height: 43.h,
@@ -164,6 +165,7 @@ class FollowingScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      
                       Divider(color: Colors.grey[350], height: 2),
                     ]),
               )),
