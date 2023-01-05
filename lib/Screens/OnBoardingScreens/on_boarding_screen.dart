@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-
+import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -12,119 +15,212 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class OnBoardingScreenState extends State<OnBoardingScreen> {
-  @override
-  void initState() {
-    super.initState();
+  final int _numPages = 3;
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+
+  List<Widget> _buildPageIndicator() {
+    List<Widget> list = [];
+    for (int i = 0; i < _numPages; i++) {
+      list.add(i == _currentPage ? _indicator(true) : _indicator(false));
+    }
+    return list;
   }
 
-  @override
-  void dispose() {
-    super.dispose();
+  Widget _indicator(bool isActive) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 150),
+      margin: EdgeInsets.symmetric(horizontal: 3.0),
+      height: 8.h,
+      width: isActive ? 8.w : 8.w,
+      decoration: BoxDecoration(
+        color: isActive ? Colors.blue : Colors.grey,
+        borderRadius: BorderRadius.all(Radius.circular(12.r)),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Colors.white,
-            // ColorConstants.orangeShadeColor,
-          ],
-        )),
-        child: IntroductionScreen(
-            globalBackgroundColor: Colors.transparent,
-            onDone: () {
-              // When done button is press
-            },
-            showBackButton: false,
-            showSkipButton: false,
-            showDoneButton: false,
-            showNextButton: false,
-            pages: [
-              PageViewModel(
-                  title: "",
-                  bodyWidget: Container(
-                      padding: const EdgeInsets.only(top: 100),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25.h),
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 600.h,
+                child: PageView(
+                  physics: ClampingScrollPhysics(),
+                  controller: _pageController,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  children: [
+                    SingleChildScrollView(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // ImageUtils.buildImage(
-                          //     ImageFiles.onBoardingImage1, 271, 307),
-                          const SizedBox(
-                            height: 60,
+                          48.h.heightBox,
+                          Center(
+                            child: Image(
+                              image: AssetImage(
+                                'assets/b.png',
+                              ),
+                            ),
                           ),
-                          // TextUtils.getText(
-                          //   StringConstants.earnMoneyOnBoarding,
-                          //   20,
-                          //   AppConstants.robotoBoldFont,
-                          // )
-                        ],
-                      ))),
-              PageViewModel(
-                  title: "",
-                  bodyWidget: Container(
-                      padding: const EdgeInsets.only(top: 100),
-                      child: Column(
-                        children: [
-                          // ImageUtils.buildImage(
-                          //     ImageFiles.onBoardingImage2, 271, 307),
-                          const SizedBox(
-                            height: 60,
+                          18.h.heightBox,
+                          Center(
+                            child: Text(
+                              'Welcome to Classic',
+                              textAlign: TextAlign.center,
+                              softWrap: true,
+                              style: TextStyle(
+                                  fontSize: 35.sp,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                              // style: kTitleStyle,
+                            ),
                           ),
-                          // TextUtils.getText(
-                          //     StringConstants.advertiseOnBoarding,
-                          //     20,
-                          //     AppConstants.robotoBoldFont,
-                          //     Colors.black,
-                          //     TextAlign.center)
+                          SizedBox(height: 40.h),
+                          Text(
+                            'With Classic, you can go live with your friends, share thoughts in global audio events and promote your services at a global as well as local level.',
+                            textAlign: TextAlign.center,
+                            softWrap: true,
+                            style: TextStyle(fontSize: 14.sp, height: 1.5),
+                          ),
                         ],
-                      ))),
-              PageViewModel(
-                  useScrollView: false,
-                  title: "",
-                  bodyWidget: FittedBox(
-                    child: Container(
-                        height: Get.height * 0.8,
-                        width: Get.width,
-                        // padding: const EdgeInsets.only(top: 100),
-                        child: Column(
-                          // direction: Axis.vertical,
-                          children: [
-                            // ImageUtils.buildImage(
-                            //     ImageFiles.onBoardingImage3, 271.w, 307.h),
-                            // Image.asset(
-                            //   "assets/images/onboarding_screen/image3.png",
-                            //   height: 307.h,
-                            //   width: 271.w,
-                            // ),
-                            // SizedBox(
-                            //   height: 60.h,
-                            // ),
-                            // TextUtils.getText(
-                            //     StringConstants.clickAdOnBoarding,
-                            //     20.sp,
-                            //     AppConstants.robotoBoldFont,
-                                // Colors.black,
-                                // TextAlign.center
-            
-                           
-                            // ButtonUtils.getRoundedCornerElevatedButton(
-                            //     StringConstants.getStartedOnBoarding, () {
-                            //   Navigator.pushNamed(
-                            //       context, Routes.loginWithScreen);
-                            // }),
-                          ],
-                        )),
-                  )),
-            ]),
+                      ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Image(
+                            image: AssetImage(
+                              'assets/b.png',
+                            ),
+                          ),
+                        ),
+                        18.h.heightBox,
+                        Center(
+                          child: Text(
+                            'Explore the world like never before',
+                            textAlign: TextAlign.center,
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 35.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                            // style: kTitleStyle,
+                          ),
+                        ),
+                        SizedBox(height: 43.h),
+                        Text(
+                          'Join and participate in global events.  Share your thoughts globally and build your community.  Upload disappearing memories for the world to see and schedule events for your global community to join.',
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: TextStyle(fontSize: 14.sp, height: 1.5),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Center(
+                          child: Image(
+                            image: AssetImage(
+                              'assets/b.png',
+                            ),
+                            height: 300.0,
+                            width: 300.0,
+                          ),
+                        ),
+                        18.h.heightBox,
+                        Center(
+                          child: Text(
+                            'Spotlight is the first global media.',
+                            textAlign: TextAlign.center,
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 35.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                            // style: kTitleStyle,
+                          ),
+                        ),
+                        SizedBox(height: 43.h),
+                        Text(
+                          'Join and participate in global events.  Share your thoughts globally and build your community.  Upload disappearing memories for the world to see and schedule events for your global community to join.',
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: TextStyle(fontSize: 14.sp, height: 1.5),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: _buildPageIndicator(),
+              ),
+              20.h.heightBox,
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => LoginScreen());
+                },
+                child: Container(
+                  height: 50.h,
+                  width: 359.w,
+                  decoration: BoxDecoration(
+                      // color: ConstColors.Lbutton,
+                      gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: ConstColors.btnColor),
+                      borderRadius: BorderRadius.all(Radius.circular(11))),
+                  child: Center(
+                    child: "GET STARTED"
+                        .text
+                        .size(13.sp)
+                        .fontWeight(FontWeight.w600)
+                        .make(),
+                  ),
+                ),
+              ),
+              Spacer(),
+            ],
+          ),
+        ),
       ),
+      // bottomSheet: _currentPage == _numPages - 1
+      // ? Container(
+      //     height: 100.0,
+      //     width: double.infinity,
+      //     color: Colors.white,
+      //     child: GestureDetector(
+      //       onTap: () => print('Get started'),
+      //       child: Center(
+      //         child: Padding(
+      //           padding: EdgeInsets.only(bottom: 30.0),
+      //           child: Text(
+      //             'Get started',
+      //             style: TextStyle(
+      //               color: Color(0xFF5B16D0),
+      //               fontSize: 20.0,
+      //               fontWeight: FontWeight.bold,
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   )
+      // : Text(''),
     );
   }
 }
