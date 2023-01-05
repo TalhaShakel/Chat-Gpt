@@ -31,7 +31,6 @@ import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.da
 import 'package:spoot_light/Screens/OnBoardingScreens/on_boarding_screen.dart';
 import 'package:spoot_light/Screens/PostScreen/CreateAnAudio2.dart';
 import 'package:spoot_light/Screens/PostScreen/MakeNewFriendScreen.dart';
-import 'package:spoot_light/Screens/ProfileScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/EditProfile.dart';
 import 'package:spoot_light/Screens/ProfileScreens/PickTopicScreen.dart';
 import 'package:spoot_light/Screens/ProfileScreens/ProfilePopUpScreen.dart';

@@ -196,7 +196,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                       DateTime? pickedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(), //get today's date
-                          firstDate: DateTime(2000), //DateTime.now()
+                          firstDate: DateTime(1800), //DateTime.now()
                           lastDate: DateTime(2101));
 
                       if (pickedDate != null) {
@@ -270,10 +270,11 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         "userPicture": userImage.toString()
                         // "userPicture": ,
                       });
+                      Get.to(() => MainHomeScreen());
                     } catch (e) {
-                      Get.snackbar("${e}", "");
+                      print(e);
+                      // Get.snackbar("${e}", "");
                     }
-                    Get.to(() => MainHomeScreen());
                   },
                   child: Container(
                     height: 50.h,
@@ -303,7 +304,6 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
     );
   }
 
- 
   TextField textfiledcontainer(var text, var controller) {
     return TextField(
       controller: controller,
@@ -328,7 +328,4 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
       ),
     );
   }
-
-
-
 }

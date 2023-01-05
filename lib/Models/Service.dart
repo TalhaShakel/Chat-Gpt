@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:spoot_light/Models/UserModels.dart';
 
 var fAuth = FirebaseAuth.instance;
 
@@ -20,12 +21,27 @@ firestore_set(collection, doc, set) async {
           .add(set);
 }
 
-firestore_update(collection, doc, data) {
-  var dat = FirebaseFirestore.instance
-      .collection("$collection")
-      .doc("$doc")
-      .update(data);
-  return dat;
+firestore_update(collection, doc, data) async {
+  try {
+    EasyLoading.show();
+    var dat = await FirebaseFirestore.instance
+        .collection("$collection")
+        .doc("$doc")
+        .update(data);
+    EasyLoading.dismiss();
+
+    return dat;
+  } on FirebaseException catch (e) {
+    EasyLoading.dismiss();
+
+    Get.snackbar("${e.message}", "");
+    print(e);
+  } catch (e) {
+    EasyLoading.dismiss();
+
+    print(e);
+    Get.snackbar("${e}", "");
+  }
 }
 
 addfav(List like, uid, collection, doc) async {
@@ -41,9 +57,25 @@ addfav(List like, uid, collection, doc) async {
 }
 
 firestore_get(collection, doc) async {
-  DocumentSnapshot userData =
-      await FirebaseFirestore.instance.collection(collection).doc(doc).get();
-  return userData;
+  try {
+    EasyLoading.show();
+
+    DocumentSnapshot userData =
+        await FirebaseFirestore.instance.collection(collection).doc(doc).get();
+    EasyLoading.dismiss();
+
+    return userData;
+  } on FirebaseException catch (e) {
+    EasyLoading.dismiss();
+
+    Get.snackbar("${e.message}", "");
+    print(e);
+  } catch (e) {
+    EasyLoading.dismiss();
+
+    print(e);
+    Get.snackbar("${e}", "");
+  }
 }
 
 pickImage(
@@ -58,40 +90,41 @@ pickImage(
   }
   print('No Image Selected');
 }
+
 var fStorage = FirebaseStorage.instance;
 
 uploadImageToStorage(PickedFile? pickedFile1) async {
   String uploadedPhotoUrl = "";
   try {
     EasyLoading.show();
-    
-      print("object 1");
-      // var directory = await PickedFile(pickedFile);
-      print(" ${pickedFile1!.path}");
-      // var path = pickedFile!.path;
-      Reference _reference = fStorage.ref().child('images/${pickedFile1.path}');
-      print("object 2");
 
-      await _reference
-          .putData(
-        await pickedFile1.readAsBytes(),
-        SettableMetadata(contentType: 'image/jpeg'),
-      )
-          .whenComplete(() async {
-        print("object 3");
+    print("object 1");
+    // var directory = await PickedFile(pickedFile);
+    print(" ${pickedFile1!.path}");
+    // var path = pickedFile!.path;
+    Reference _reference = fStorage.ref().child('images/${pickedFile1.path}');
+    print("object 2");
 
-        await _reference.getDownloadURL().then((value) {
-          uploadedPhotoUrl = value;
-        });
-        print("object 4");
+    await _reference
+        .putData(
+      await pickedFile1.readAsBytes(),
+      SettableMetadata(contentType: 'image/jpeg'),
+    )
+        .whenComplete(() async {
+      print("object 3");
+
+      await _reference.getDownloadURL().then((value) {
+        uploadedPhotoUrl = value;
       });
-      if (uploadedPhotoUrl != "") {
-        print(uploadedPhotoUrl);
-        EasyLoading.dismiss();
+      print("object 4");
+    });
+    if (uploadedPhotoUrl != "") {
+      print(uploadedPhotoUrl);
+      EasyLoading.dismiss();
 
-        return uploadedPhotoUrl;
-      }
-  
+      return uploadedPhotoUrl;
+    }
+
     EasyLoading.dismiss();
   } catch (e) {
     print(e);
@@ -139,4 +172,4 @@ chooseImage(
 
 //     return userModel;
 //   }
-var currentUserData;
+var currentUserData = UserModel();

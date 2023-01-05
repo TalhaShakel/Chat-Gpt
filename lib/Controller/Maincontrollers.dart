@@ -1,29 +1,41 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:spoot_light/Models/Service.dart';
+import 'package:spoot_light/Models/UserModels.dart';
 
 class MainController extends GetxController {
   static MainController instance = Get.find();
 
   /////////// Male & Female ////////////////
 
-  // late Rx<User?> _user;
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  //   _user = Rx<User?>(fAuth.currentUser);
-  //   _user.bindStream(fAuth.authStateChanges());
-  //   ever(_user, setInitialScreen);
-  // }
+  late Rx<User?> _user;
+  @override
+  void onReady() {
+    super.onReady();
+    _user = Rx<User?>(fAuth.currentUser);
+    _user.bindStream(fAuth.authStateChanges());
+    ever(_user, setInitialScreen);
+  }
 
-  // setInitialScreen(User? user) {
-  //   if (user == null) {
-  //     Get.offAll(() => SplashScrren());
-  //   } else {
-  //     Get.offAll(() => BottomNavBarScreen());
-  //   }
-  // }
+  setInitialScreen(User? user) {
+    if (user == null) {
+      // Get.offAll(() => SplashScrren());
+    } else {
+      getuserdata();
+      // Get.offAll(() => BottomNavBarScreen());
+    }
+  }
+
+  getuserdata() async {
+    print(fAuth.currentUser!.uid);
+    var documentSnapshot = await firestore_get("user", fAuth.currentUser!.uid);
+    currentUserData = UserModel.fromMap(documentSnapshot);
+    print(currentUserData.userEmail.toString());
+  }
 
   var gender = "";
   isselect(select) {
@@ -92,5 +104,9 @@ class MainController extends GetxController {
       print(e);
       Get.snackbar(e.toString(), "");
     }
+  }
+
+  Future<void> signOut() async {
+    await fAuth.signOut();
   }
 }

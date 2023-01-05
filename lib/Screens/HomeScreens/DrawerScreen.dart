@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:spoot_light/Controller/auth_methods.dart';
 import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
+import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -163,24 +165,30 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
                 ),
               ],
             ),
-            292.h.heightBox,
-            Row(
-              children: [
-                Container(
-                  width: 24.w,
-                  height: 24.h,
-                  child: Image.asset("assets/lo.png", color: Color(0xff75766E)),
-                ),
-                15.w.widthBox,
-                Text(
-                  "Logout",
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xff75766E)),
-                  // color: Colors.black),
-                ),
-              ],
+            40.h.heightBox,
+            GestureDetector(
+              onTap: () {
+                AuthMethods().signOut();
+              },
+              child: Row(
+                children: [
+                  Container(
+                    width: 24.w,
+                    height: 24.h,
+                    child:
+                        Image.asset("assets/lo.png", color: Color(0xff75766E)),
+                  ),
+                  15.w.widthBox,
+                  Text(
+                    "Logout",
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff75766E)),
+                    // color: Colors.black),
+                  ),
+                ],
+              ),
             ),
             96.h.heightBox,
           ],
