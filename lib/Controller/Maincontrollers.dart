@@ -106,7 +106,5 @@ class MainController extends GetxController {
     }
   }
 
-  Future<void> signOut() async {
-    await fAuth.signOut();
-  }
+  
 }

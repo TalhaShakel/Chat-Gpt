@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
+import 'package:spoot_light/Controller/profile_controller.dart';
+import 'package:spoot_light/Models/Service.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -11,6 +13,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ProfileController profileController = Get.put(ProfileController());
+
     return Scaffold(
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
@@ -39,231 +43,275 @@ class ProfileScreen extends StatelessWidget {
               21.w.widthBox,
             ],
             backgroundColor: Colors.transparent),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 250.h,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/bg.png"), fit: BoxFit.cover),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      size: 15,
-                      color: Color(0xffFFA600),
-                    ),
-                    Text(
-                      "Mumbai, patna",
-                      style: TextStyle(color: Colors.black, fontSize: 10.sp),
-                    ),
-                  ],
-                ),
-                26.h.heightBox,
-                Center(
-                  child: Text(
-                    "Michael Lurk ",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 32.sp,
-                        fontWeight: FontWeight.w800),
-                  ),
-                ),
-                22.h.heightBox,
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.h), //54
-                  child: Text(
-                    "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
-                    softWrap: true,
-                    style: TextStyle(fontSize: 14.sp, color: Color(0xff6C6C6C)),
-                  ),
-                ),
-                19.h.heightBox,
-                20.h.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 31.h,
-                      width: 100.w,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(60.r))),
-                      child: Center(
-                        child: Text(
-                          "MESSAGE",
-                          style: TextStyle(
-                              fontSize: 12.sp, fontWeight: FontWeight.w600),
+        body: Builder(builder: (context) {
+          return GetBuilder<ProfileController>(
+              init: ProfileController(),
+              builder: (controller) {
+                return SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 22.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              height: 250.h,
+                              decoration: BoxDecoration(
+                                  // shape: BoxShape.values[]
+                                  //   image: DecorationImage(
+                                  //       image: AssetImage("assets/bg.png"),
+                                  //       fit: BoxFit.cover),
+                                  ),
+                              child: Image.asset("assets/bg.png"),
+                            ),
+                            Positioned(
+                              bottom: -10,
+                              child: CircleAvatar(
+                                radius: 85.r,
+                                backgroundImage: NetworkImage(
+                                  currentUserData.userPicture.toString(),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ),
-                    Container(
-                      height: 31.h,
-                      width: 100.w,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: ConstColors.btnColor),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(60.r))),
-                      child: Center(
-                        child: Text(
-                          "FOLLOW",
-                          style: TextStyle(
-                              fontSize: 12.sp, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 31.h,
-                      width: 100.w,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: ConstColors.btnColor),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(60.r))),
-                      child: Center(
-                        child: Text(
-                          "Subscribe",
-                          style: TextStyle(
-                              fontSize: 12.sp, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                27.h.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    followingdetials("Followers", "682"),
-                    20.w.widthBox,
-                    followingdetials("Following", "20k"),
-                    20.w.widthBox,
-                    followingdetials("Posts", "200"),
-                    20.w.widthBox,
-                    followingdetials("Subscribers", "200"),
-                  ],
-                ),
-                23.h.heightBox,
-                Divider(),
-                20.h.heightBox,
-                Text(
-                  "Related Tagg",
-                  style:
-                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
-                ),
-                16.h.heightBox,
-                // GridView.count(
-                //     physics: ScrollPhysics(),
-                //     childAspectRatio: (99.w / 31.h),
-                //     crossAxisCount: 3,
-                //     mainAxisSpacing: 15,
-                //     crossAxisSpacing: 15,
-                //     shrinkWrap: true,
-                //     scrollDirection: Axis.vertical,
-                //     children: List.generate(6, (index) {
-                //       return suggestContainer("Language");
-                //     })),
-                Row(
-                  children: [
-                    suggestContainer("Language"),
-                    suggestContainer("Language"),
-                  ],
-                ),
-                20.h.heightBox,
-                Divider(),
-                20.h.heightBox,
-                Row(
-                  children: [
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Feed",
-                            style: TextStyle(
-                                // color: Color(0xffA7A7A7),
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          4.h.heightBox,
-                          Container(
-                            height: 3.h,
-                            width: 37.w,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: ConstColors.btnColor),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(11))),
-                          ),
-                          30.h.heightBox,
-                        ],
-                      ),
-                    ),
-                    116.w.widthBox,
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "AI",
-                            style: TextStyle(
-                                // color: Color(0xffA7A7A7),
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          4.h.heightBox,
-                          Container(
-                            height: 3.h,
-                            width: 15.w,
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: ConstColors.btnColor),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(11))),
-                          ),
-                          30.h.heightBox,
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-                //////////////////////////////////////////
 
-                // feedContainer(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              size: 15,
+                              color: Color(0xffFFA600),
+                            ),
+                            Text(
+                              "Mumbai, patna",
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 10.sp),
+                            ),
+                          ],
+                        ),
+                        26.h.heightBox,
+                        Center(
+                          child: Text(
+                            currentUserData.userName.toString() ??
+                                "Michael Lurk ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 32.sp,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                        22.h.heightBox,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.h), //54
+                          child: Text(
+                            "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 14.sp, color: Color(0xff6C6C6C)),
+                          ),
+                        ),
+                        19.h.heightBox,
+                        20.h.heightBox,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 31.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.black),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(60.r))),
+                              child: Center(
+                                child: Text(
+                                  "MESSAGE",
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 31.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: ConstColors.btnColor),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(60.r))),
+                              child: Center(
+                                child: Text(
+                                  "FOLLOW",
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 31.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                      colors: ConstColors.btnColor),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(60.r))),
+                              child: Center(
+                                child: Text(
+                                  "Subscribe",
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        27.h.heightBox,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            followingdetials("Followers", "682"),
+                            20.w.widthBox,
+                            followingdetials("Following", "20k"),
+                            20.w.widthBox,
+                            followingdetials("Posts", "200"),
+                            20.w.widthBox,
+                            followingdetials("Subscribers", "200"),
+                          ],
+                        ),
+                        23.h.heightBox,
+                        Divider(),
+                        20.h.heightBox,
+                        Text(
+                          "Related Tagg",
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w600),
+                        ),
+                        16.h.heightBox,
+                        // GridView.count(
+                        //     physics: ScrollPhysics(),
+                        //     childAspectRatio: (99.w / 31.h),
+                        //     crossAxisCount: 3,
+                        //     mainAxisSpacing: 15,
+                        //     crossAxisSpacing: 15,
+                        //     shrinkWrap: true,
+                        //     scrollDirection: Axis.vertical,
+                        //     children: List.generate(6, (index) {
+                        //       return suggestContainer("Language");
+                        //     })),
+                        Row(
+                          children: [
+                            suggestContainer("Language"),
+                            suggestContainer("Language"),
+                          ],
+                        ),
+                        20.h.heightBox,
+                        Divider(),
+                        20.h.heightBox,
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                controller.isfeed(false);
+                              },
+                              child: Container(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Feed",
+                                      style: TextStyle(
+                                          // color: Color(0xffA7A7A7),
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    4.h.heightBox,
+                                    if (controller.aiProfiledata == false)
+                                      Container(
+                                        height: 3.h,
+                                        width: 37.w,
+                                        decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                                begin: Alignment.centerLeft,
+                                                end: Alignment.centerRight,
+                                                colors: ConstColors.btnColor),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(11))),
+                                      ),
+                                    30.h.heightBox,
+                                  ],
+                                ),
+                              ),
+                            ),
+                            116.w.widthBox,
+                            GestureDetector(
+                              onTap: () {
+                                controller.isfeed(true);
+                              },
+                              child: Container(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "AI",
+                                      style: TextStyle(
+                                          // color: Color(0xffA7A7A7),
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    4.h.heightBox,
+                                    if (controller.aiProfiledata == true)
+                                      Container(
+                                        height: 3.h,
+                                        width: 15.w,
+                                        decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                                begin: Alignment.centerLeft,
+                                                end: Alignment.centerRight,
+                                                colors: ConstColors.btnColor),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(11))),
+                                      ),
+                                    30.h.heightBox,
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        //////////////////////////////////////////
+                        if (controller.aiProfiledata == false) feedContainer(),
 
-                Container(
-                  height: 132.h,
-                  width: 110.w,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "assets/c2.png",
-                      fit: BoxFit.fill,
+                        if (controller.aiProfiledata == true) aipost(),
+                        20.h.heightBox,
+                      ],
                     ),
                   ),
-                ),
-                20.h.heightBox,
-              ],
-            ),
-          ),
-        ));
+                );
+              });
+        }));
+  }
+
+  Container aipost() {
+    return Container(
+      height: 132.h,
+      width: 110.w,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset(
+          "assets/c2.png",
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
   }
 
   Column followingdetials(

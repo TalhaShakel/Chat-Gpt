@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Controller/auth_methods.dart';
+import 'package:spoot_light/Models/Service.dart';
 import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/ToDoListScreen/todolistScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/ProfileScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 Drawer MainDrawer(BuildContext _, var scaffoldKey) {
@@ -18,36 +20,47 @@ Drawer MainDrawer(BuildContext _, var scaffoldKey) {
         child: Column(
           children: [
             49.h.heightBox,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 53.h,
-                  width: 53.w,
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Image.asset("assets/dp.png"),
-                ),
-                10.w.widthBox,
-                Text(
-                  "Allison Becker",
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                55.w.widthBox,
-                GestureDetector(
-                  onTap: () {
-                    scaffoldKey.currentState!.closeDrawer();
-                  },
-                  child: Icon(
-                    Icons.close,
-                    color: Colors.grey,
-                    size: 35,
+            GestureDetector(
+              onTap: () {
+                Get.to(() => ProfileScreen());
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    radius: 23.r,
+                    backgroundImage: NetworkImage(
+                      currentUserData.userPicture.toString(),
+                    ),
                   ),
-                ),
-                10.w.widthBox,
-              ],
+                  // Container(
+                  //   height: 53.h,
+                  //   width: 53.w,
+                  //   decoration: BoxDecoration(shape: BoxShape.circle),
+                  //   child: Image.network(currentUserData.userPicture.toString()),
+                  // ),
+                  // 10.w.widthBox,
+                  Text(
+                    currentUserData.userName.toString() ?? "Allison Becker",
+                    style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                  55.w.widthBox,
+                  GestureDetector(
+                    onTap: () {
+                      scaffoldKey.currentState!.closeDrawer();
+                    },
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                  ),
+                  10.w.widthBox,
+                ],
+              ),
             ),
             58.h.heightBox,
             GestureDetector(
