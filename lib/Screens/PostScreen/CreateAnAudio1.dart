@@ -167,6 +167,7 @@ class CreateAudioRoom1 extends StatelessWidget {
                           fontWeight: FontWeight.w500, fontSize: 14.sp),
                     ),
                     10.h.heightBox,
+                    
                     Container(
                       height: 115.h,
                       width: 359.w,
@@ -196,6 +197,7 @@ class CreateAudioRoom1 extends StatelessWidget {
                         ),
                       ),
                     ),
+                   
                     25.h.heightBox,
                     GestureDetector(
                       onTap: () {

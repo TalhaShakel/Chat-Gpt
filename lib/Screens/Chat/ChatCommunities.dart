@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class ChatAllMessages extends StatelessWidget {
-  const ChatAllMessages({super.key});
+class ChatCommunities extends StatelessWidget {
+  const ChatCommunities({super.key});
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
