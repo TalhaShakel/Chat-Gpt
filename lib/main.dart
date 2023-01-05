@@ -15,6 +15,7 @@ import 'package:spoot_light/Screens/AudioRoomScreens/RoomChatScreen.dart';
 import 'package:spoot_light/Screens/Chat/ChatAllMessage.dart';
 import 'package:spoot_light/Screens/Chat/ChatCreateCommunities.dart';
 import 'package:spoot_light/Screens/Chat/ChatScreen.dart';
+import 'package:spoot_light/Screens/Chat/CommunityChatScreen.dart';
 import 'package:spoot_light/Screens/Chat/CreateCommAddData.dart';
 import 'package:spoot_light/Screens/Chat/CreateCommunities2.dart';
 import 'package:spoot_light/Screens/Chat/chat.dart';
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: Chat(),
+            home: CommunityChatScreen(),
             debugShowCheckedModeBanner: false,
           );
         });

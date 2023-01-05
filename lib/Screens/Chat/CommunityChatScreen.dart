@@ -273,7 +273,11 @@ class CommunityChatScreen extends StatelessWidget {
                             height: 40.h,
                             width: 40.w,
                             decoration: BoxDecoration(
-                                color: Colors.black, shape: BoxShape.circle),
+                                gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: ConstColors.btnColor),
+                                shape: BoxShape.circle),
                             child: Icon(
                               Icons.add,
                               color: Colors.white,
