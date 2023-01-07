@@ -23,22 +23,52 @@ class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
+      height: 392.h,
       width: Get.width,
       decoration: BoxDecoration(
+        color: Colors.transparent,
         image: DecorationImage(
             image: AssetImage("assets/bg.png"), fit: BoxFit.cover),
       ),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
           elevation: 0,
+          backgroundColor: Colors.transparent,
+
+          // backgroundColor: Color(0x44000000),
+          title: Text(
+            "Edit Profile",
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp),
+          ),
+          leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(Icons.arrow_back)),
+          centerTitle: true,
+          actions: [
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                  height: 22.h,
+                  width: 19.w,
+                  decoration: BoxDecoration(
+                      color: Colors.black, shape: BoxShape.circle),
+                  child: Center(
+                      child: Icon(
+                    Icons.camera_alt_outlined,
+                    size: 13,
+                  ))),
+            ),
+            21.w.widthBox,
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              100.h.heightBox,
+              136.h.heightBox,
               Stack(
                 children: [
                   Column(
@@ -50,8 +80,8 @@ class EditProfile extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(40.0),
-                                topLeft: Radius.circular(40.0)),
+                                topRight: Radius.circular(31.r),
+                                topLeft: Radius.circular(31.r)),
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 15.h),
@@ -62,7 +92,7 @@ class EditProfile extends StatelessWidget {
                                 Text(
                                   "User Name",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 14.sp),
                                 ),
                                 textfiledContainer(
@@ -71,7 +101,7 @@ class EditProfile extends StatelessWidget {
                                 Text(
                                   "Email Id",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 14.sp),
                                 ),
                                 textfiledContainer(
@@ -80,7 +110,7 @@ class EditProfile extends StatelessWidget {
                                 Text(
                                   "Description",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 14.sp),
                                 ),
                                 textfiledContainer(
@@ -89,7 +119,7 @@ class EditProfile extends StatelessWidget {
                                 Text(
                                   "Password",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: 14.sp),
                                 ),
                                 textfiledContainer(
@@ -192,16 +222,16 @@ class EditProfile extends StatelessWidget {
           contentPadding: EdgeInsets.all(10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ConstColors.CircleColor, width: 1),
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(11.r),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ConstColors.textfieldColor),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(11.r),
           ),
           hintText: "$hinttxt",
           hintStyle: TextStyle(color: Colors.black),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(11.r),
           ),
         ),
       ),

@@ -10,7 +10,7 @@ import 'package:velocity_x/velocity_x.dart';
 class ChatCommunities extends StatelessWidget {
   const ChatCommunities({super.key});
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -73,6 +73,7 @@ class AllMessages extends StatelessWidget {
         key: ValueKey(0),
         endActionPane: ActionPane(
           motion: ScrollMotion(),
+          // dismissible: DismissiblePane(onDismissed: () {}),
           extentRatio: 0.2,
           children: [
             Expanded(
@@ -90,10 +91,13 @@ class AllMessages extends StatelessWidget {
                             end: Alignment.centerRight,
                             colors: ConstColors.btnColor),
                       ),
-                      child: Icon(
-                        Icons.delete,
-                        color: Colors.pink,
-                        size: 20,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.pink,
+                          size: 20,
+                        ),
                       )),
                 ),
               ),
