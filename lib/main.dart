@@ -10,6 +10,7 @@ import 'package:spoot_light/Screens/AI_Screens/WalletScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioRoomScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceComment.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceScreen.dart';
+import 'package:spoot_light/Screens/AudioRoomScreens/MyAudioRoomAudience.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/MyAudioRoomHost.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/RoomChatScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/UserAgreement.dart';
@@ -63,10 +64,10 @@ class MyApp extends StatelessWidget {
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child){
+        builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: UserAgreement(),
+            home: MyAudioRoomAudience(),
             debugShowCheckedModeBanner: false,
           );
         });

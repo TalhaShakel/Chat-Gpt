@@ -3,11 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class MyAudioRoomHost extends StatelessWidget {
-  const MyAudioRoomHost({super.key});
+class MyAudioRoomAudience extends StatelessWidget {
+  const MyAudioRoomAudience({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +168,7 @@ class MyAudioRoomHost extends StatelessWidget {
                                           Radius.circular(7.r))),
                                   child: Center(
                                       child: Text(
-                                    "End this room",
+                                    "Leave this room",
                                     style: TextStyle(
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.w600),
