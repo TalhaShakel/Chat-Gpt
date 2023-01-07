@@ -12,6 +12,7 @@ import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceComment.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/AudioSpaceScreen.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/MyAudioRoomHost.dart';
 import 'package:spoot_light/Screens/AudioRoomScreens/RoomChatScreen.dart';
+import 'package:spoot_light/Screens/AuthScreens/UserAgreement.dart';
 import 'package:spoot_light/Screens/Chat/ChatAllMessage.dart';
 import 'package:spoot_light/Screens/Chat/ChatCommunities.dart';
 import 'package:spoot_light/Screens/Chat/ChatCreateCommunities.dart';
@@ -63,10 +64,9 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child){
-
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: ChatCommunities(),
+            home: UserAgreement(),
             debugShowCheckedModeBanner: false,
           );
         });
