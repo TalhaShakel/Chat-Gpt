@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -29,7 +30,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   bool value = false;
-
+  // signIn() {}
   signIn() async {
     if (_emailController.text == "" || _passwordController == "") {
       Get.snackbar("Please Fill this fields ", "");
@@ -44,10 +45,11 @@ class LoginScreen extends StatelessWidget {
           userPassword: _passwordController.text.trim().toString(),
           userEmail: _emailController.text.trim().toString(),
         );
-        var document = await firestore_get(
+        DocumentSnapshot<Object?> document = await firestore_get(
           "user",
           credential.user!.uid,
         );
+        print(document.data());
         UserModel userdata =
             UserModel.fromMap(document.data() as Map<String, dynamic>);
         currentUserData = userdata;

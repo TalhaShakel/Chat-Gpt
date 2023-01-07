@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: MyAudioRoomAudience(),
+            home: SplashScrren(),
             debugShowCheckedModeBanner: false,
           );
         });

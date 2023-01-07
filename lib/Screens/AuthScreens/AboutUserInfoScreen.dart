@@ -266,7 +266,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         "iscompleted": true,
                         // "userPicture": ,
                       });
-                      MainController().getuserdata();
+                      MainController.instance.getuserdata();
                       Get.offAll(() => MainHomeScreen());
                     } catch (e) {
                       print(e);

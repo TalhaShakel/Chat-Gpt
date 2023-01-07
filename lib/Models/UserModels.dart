@@ -8,7 +8,7 @@ class UserModel {
   String? userLanguage;
   String? userGender;
   String? userPicture;
-  bool? iscompleted;
+  bool? iscompleted = false;
 
   UserModel({
     this.iscompleted,
