@@ -37,14 +37,6 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
 
   late File selected;
 
-  @override
-  void dispose() {
-    _genderController.dispose();
-    _userNameController.dispose();
-    _birthdayController.dispose();
-    _languageController.dispose();
-  }
-
   PickedFile? img;
 
   @override
@@ -257,7 +249,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 GestureDetector(
                   onTap: () async {
                     try {
-                      firestore_update("user", currentUserData.uid, {
+                      await firestore_update("user", currentUserData.uid, {
                         "userName": _userNameController.text.trim(),
                         "userBirthday": _birthdayController.text.trim(),
                         "userGender": selectedgender.toString(),
@@ -266,7 +258,7 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         "iscompleted": true,
                         // "userPicture": ,
                       });
-                      MainController.instance.getuserdata();
+                      await MainController.instance.getuserdata();
                       Get.offAll(() => MainHomeScreen());
                     } catch (e) {
                       print(e);

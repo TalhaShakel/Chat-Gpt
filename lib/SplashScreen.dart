@@ -22,27 +22,21 @@ class _SplashScrrenState extends State<SplashScrren> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () async {
-      print("object 1");
-
+    Timer(Duration(seconds: 2), () async {
+      // User? user;
+      // ever(_user, setInitialScreen);
       if (fAuth.currentUser == null) {
         Get.offAll(() => LoginScreen());
-        print("object 2");
       } else {
-        print("object 3");
         var documentSnapshot =
             await firestore_get("user", fAuth.currentUser!.uid);
-        print("object 4");
         currentUserData = UserModel.fromMap(documentSnapshot);
-        print(currentUserData.userName);
         print(currentUserData.userEmail.toString());
-        // print(currentUserData.iscompleted);
-        // if (currentUserData.iscompleted == true) {
-        //   Get.offAll(() => MainHomeScreen());
-        // }
-        // if (currentUserData.iscompleted == false) {
-        //   Get.offAll(() => AboutUserInfo());
-        // }
+        print(currentUserData.iscompleted);
+        if (currentUserData.iscompleted == true)
+          Get.offAll(() => MainHomeScreen());
+        if (currentUserData.iscompleted == false)
+          Get.offAll(() => AboutUserInfo());
       }
     });
   }
