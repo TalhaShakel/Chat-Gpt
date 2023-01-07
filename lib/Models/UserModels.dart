@@ -8,8 +8,10 @@ class UserModel {
   String? userLanguage;
   String? userGender;
   String? userPicture;
+  bool? iscompleted;
 
   UserModel({
+    this.iscompleted,
     this.uid,
     this.userEmail,
     this.userPassword,
@@ -22,6 +24,7 @@ class UserModel {
   });
 
   UserModel.fromMap(map) {
+    iscompleted = map["iscompleted"];
     userGender = map["userGender"];
     userEmail = map["userEmail"];
     uid = map["uid"];
@@ -34,6 +37,7 @@ class UserModel {
   }
   Map<String, dynamic> toMap() {
     return {
+      "iscompleted": false,
       "uid": uid,
       "userName": userName,
       "userEmail": userEmail,

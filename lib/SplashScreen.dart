@@ -5,8 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Models/Service.dart';
+import 'package:spoot_light/Models/UserModels.dart';
+import 'package:spoot_light/Screens/AuthScreens/AboutUserInfoScreen.dart';
 import 'package:spoot_light/Screens/AuthScreens/LoginScreen.dart';
 import 'package:spoot_light/Screens/MainHomeScreen/MainHomeScreen.dart';
+import 'package:spoot_light/Screens/ProfileScreens/ProfileScreen.dart';
 
 class SplashScrren extends StatefulWidget {
   const SplashScrren({super.key});
@@ -19,13 +22,21 @@ class _SplashScrrenState extends State<SplashScrren> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 2), () async {
       // User? user;
       // ever(_user, setInitialScreen);
       if (fAuth.currentUser == null) {
         Get.offAll(() => LoginScreen());
       } else {
-        Get.offAll(() => MainHomeScreen());
+        var documentSnapshot =
+            await firestore_get("user", fAuth.currentUser!.uid);
+        currentUserData = UserModel.fromMap(documentSnapshot);
+        print(currentUserData.userEmail.toString());
+        // print(currentUserData.iscompleted);
+        if (currentUserData.iscompleted == true)
+          Get.offAll(() => ProfileScreen());
+        if (currentUserData.iscompleted == false)
+          Get.offAll(() => AboutUserInfo());
       }
     });
   }

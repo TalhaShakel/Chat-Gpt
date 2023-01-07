@@ -144,8 +144,8 @@ chooseImage(
     PickedFile? pickedFile = await ImagePicker().getImage(
       source: source,
     );
-    print("object 6");
-    print(pickedFile!.path);
+    // print("object 6");
+    // print(pickedFile!.path);
 
     if (pickedFile != null) {
       EasyLoading.dismiss();

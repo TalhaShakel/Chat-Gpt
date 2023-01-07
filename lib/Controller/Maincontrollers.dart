@@ -34,7 +34,7 @@ class MainController extends GetxController {
     print(fAuth.currentUser!.uid);
     var documentSnapshot = await firestore_get("user", fAuth.currentUser!.uid);
     currentUserData = UserModel.fromMap(documentSnapshot);
-    print(currentUserData.userEmail.toString());
+    update();
   }
 
   var gender = "";
@@ -105,6 +105,4 @@ class MainController extends GetxController {
       Get.snackbar(e.toString(), "");
     }
   }
-
-  
 }

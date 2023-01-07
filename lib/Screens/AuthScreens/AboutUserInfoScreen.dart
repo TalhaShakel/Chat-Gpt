@@ -63,19 +63,8 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                 Center(
                   child: Stack(
                     children: [
-                      img == null
+                      img != null
                           ? Container(
-                              height: 147.h,
-                              width: 147.w,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.asset(
-                                "assets/p.png",
-                                fit: BoxFit.cover,
-                              ), //////////////////////
-                            )
-                          : Container(
                               height: 147.h,
                               width: 147.w,
                               decoration: BoxDecoration(
@@ -95,6 +84,12 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                                   ),
                                 ),
                               ),
+                            )
+                          : CircleAvatar(
+                              radius: 74,
+                              backgroundImage: NetworkImage(
+                                  'https://i.stack.imgur.com/l60Hf.png'),
+                              backgroundColor: Colors.red,
                             ),
                       Positioned(
                         bottom: 10,
@@ -267,10 +262,12 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         "userBirthday": _birthdayController.text.trim(),
                         "userGender": selectedgender.toString(),
                         "userLanguage": selectedlang.toString(),
-                        "userPicture": userImage.toString()
+                        "userPicture": userImage.toString(),
+                        "iscompleted": true,
                         // "userPicture": ,
                       });
-                      Get.to(() => MainHomeScreen());
+                      MainController().getuserdata();
+                      Get.offAll(() => MainHomeScreen());
                     } catch (e) {
                       print(e);
                       // Get.snackbar("${e}", "");

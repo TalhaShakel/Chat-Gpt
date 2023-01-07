@@ -51,8 +51,9 @@ class LoginScreen extends StatelessWidget {
         UserModel userdata =
             UserModel.fromMap(document.data() as Map<String, dynamic>);
         currentUserData = userdata;
-        Get.to(() => AboutUserInfo());
-        // Get.to(() => MianHomeScreen());
+        if (currentUserData.iscompleted == false) Get.to(() => AboutUserInfo());
+        if (currentUserData.iscompleted == true) Get.to(() => MainHomeScreen());
+        // Get.to(() => MainHomeScreen());
 
         //////////////////////////////////
 
@@ -121,7 +122,6 @@ class LoginScreen extends StatelessWidget {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    
                   ),
                 ),
                 30.h.heightBox,
@@ -201,7 +201,7 @@ class LoginScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     await signIn();
-                    MainController.instance;
+                    // MainController.instance;
                   },
                   child: Container(
                     height: 50.h,
