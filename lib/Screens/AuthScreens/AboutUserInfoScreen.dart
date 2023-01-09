@@ -259,7 +259,8 @@ class _AboutUserInfoState extends State<AboutUserInfo> {
                         // "userPicture": ,
                       });
                       await MainController.instance.getuserdata();
-                      Get.offAll(() => MainHomeScreen());
+                      // Get.offAll(() => MainHomeScreen());
+                      Get.to(() => PickTopicScreen());
                     } catch (e) {
                       print(e);
                       // Get.snackbar("${e}", "");

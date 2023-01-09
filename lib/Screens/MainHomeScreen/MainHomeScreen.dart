@@ -80,7 +80,9 @@ class MainHomeScreen extends StatelessWidget {
                           height: 24.h,
                           width: 24.h,
                           child: Image.asset("assets/ch.png",
-                              color: Colors.blue[800]))),
+                              color: controller.index == 2
+                                  ? Colors.blue[800]
+                                  : Colors.black))),
                 ),
                 BottomNavigationBarItem(
                   label: "",

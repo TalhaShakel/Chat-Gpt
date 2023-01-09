@@ -44,316 +44,312 @@ class ProfileScreen extends StatelessWidget {
               21.w.widthBox,
             ],
             backgroundColor: Colors.transparent),
-        body: Builder(builder: (context) {
-          return GetBuilder<ProfileController>(
-              init: ProfileController(),
-              builder: (controller) {
-                return SingleChildScrollView(
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // padding: EdgeInsets.symmetric(horizontal: 22.h),
+        body: GetBuilder<ProfileController>(
+            init: ProfileController(),
+            builder: (controller) {
+              return SingleChildScrollView(
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // padding: EdgeInsets.symmetric(horizontal: 22.h),
 
-                      Container(
-                        // color: Colors.amber,
-                        height: 241.h,
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 200.h,
-                              width: Get.width,
-                              child: ClipPath(
-                                clipper: MyCustomClipper(),
+                    Container(
+                      // color: Colors.amber,
+                      height: 241.h,
+                      child: Stack(
+                        children: [
+                          Container(
+                            height: 200.h,
+                            width: Get.width,
+                            child: ClipPath(
+                              clipper: MyCustomClipper(),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+
+                                  // shape: BoxShape.values[]
+                                  image: DecorationImage(
+                                      image: AssetImage("assets/bg.png"),
+                                      fit: BoxFit.cover),
+                                ),
+                                // child: Image.asset(
+                                //   "assets/bg.png",
+                                //   width: Get.width,
+                                //   fit: BoxFit.fitHeight,
+                                // ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 10.h,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: Get.width % 121.w),
+                              child: SizedBox(
+                                height: 121.h,
+                                width: 121.w,
+                                child: CircleAvatar(
+                                  radius: 100.r,
+                                  backgroundImage: NetworkImage(
+                                    currentUserData.userPicture.toString(),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // coming
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 22.h),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                size: 15,
+                                color: Color(0xffFFA600),
+                              ),
+                              Text(
+                                "Mumbai, patna",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 10.sp),
+                              ),
+                            ],
+                          ),
+                          22.h.heightBox,
+
+                          Text(
+                            currentUserData.userName.toString() ??
+                                "Michael Lurk ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 32.sp,
+                                fontWeight: FontWeight.w800),
+                          ),
+                          22.h.heightBox,
+                          Text(
+                            "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
+                            softWrap: true,
+                            style: TextStyle(
+                                fontSize: 14.sp, color: Color(0xff6C6C6C)),
+                          ),
+                          19.h.heightBox,
+
+                          20.h.heightBox,
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 31.h,
+                                width: 100.w,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(60.r))),
+                                child: Center(
+                                  child: Text(
+                                    "MESSAGE",
+                                    style: TextStyle(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 31.h,
+                                width: 100.w,
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: ConstColors.btnColor),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(60.r))),
+                                child: Center(
+                                  child: Text(
+                                    "FOLLOW",
+                                    style: TextStyle(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 31.h,
+                                width: 100.w,
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: ConstColors.btnColor),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(60.r))),
+                                child: Center(
+                                  child: Text(
+                                    "Subscribe",
+                                    style: TextStyle(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          27.h.heightBox,
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              followingdetials("Followers", "682"),
+                              20.w.widthBox,
+                              followingdetials("Following", "20k"),
+                              20.w.widthBox,
+                              followingdetials("Posts", "200"),
+                              20.w.widthBox,
+                              followingdetials("Subscribers", "200"),
+                            ],
+                          ),
+
+                          23.h.heightBox,
+
+                          Divider(),
+
+                          20.h.heightBox,
+
+                          Text(
+                            "Related Tagg",
+                            style: TextStyle(
+                                fontSize: 16.sp, fontWeight: FontWeight.w600),
+                          ),
+
+                          16.h.heightBox,
+
+                          // GridView.count(
+
+                          //     physics: ScrollPhysics(),
+
+                          //     childAspectRatio: (99.w / 31.h),
+
+                          //     crossAxisCount: 3,
+
+                          //     mainAxisSpacing: 15,
+
+                          //     crossAxisSpacing: 15,
+
+                          //     shrinkWrap: true,
+
+                          //     scrollDirection: Axis.vertical,
+
+                          //     children: List.generate(6, (index) {
+
+                          //       return suggestContainer("Language");
+
+                          //     })),
+
+                          Row(
+                            children: [
+                              suggestContainer("Language"),
+                              suggestContainer("Language"),
+                            ],
+                          ),
+
+                          20.h.heightBox,
+
+                          Divider(),
+
+                          20.h.heightBox,
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  controller.isfeed(false);
+                                },
                                 child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-
-                                    // shape: BoxShape.values[]
-                                    image: DecorationImage(
-                                        image: AssetImage("assets/bg.png"),
-                                        fit: BoxFit.cover),
-                                  ),
-                                  // child: Image.asset(
-                                  //   "assets/bg.png",
-                                  //   width: Get.width,
-                                  //   fit: BoxFit.fitHeight,
-                                  // ),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 10.h,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: Get.width % 121.w),
-                                child: SizedBox(
-                                  height: 121.h,
-                                  width: 121.w,
-                                  child: CircleAvatar(
-                                    radius: 100.r,
-                                    backgroundImage: NetworkImage(
-                                      currentUserData.userPicture.toString(),
-                                    ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Feed",
+                                        style: TextStyle(
+                                            // color: Color(0xffA7A7A7),
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      4.h.heightBox,
+                                      if (controller.aiProfiledata == false)
+                                        Container(
+                                          height: 3.h,
+                                          width: 37.w,
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  begin: Alignment.centerLeft,
+                                                  end: Alignment.centerRight,
+                                                  colors: ConstColors.btnColor),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(11))),
+                                        ),
+                                      30.h.heightBox,
+                                    ],
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // coming
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 22.h),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.location_on,
-                                  size: 15,
-                                  color: Color(0xffFFA600),
-                                ),
-                                Text(
-                                  "Mumbai, patna",
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 10.sp),
-                                ),
-                              ],
-                            ),
-                            22.h.heightBox,
-
-                            Text(
-                              currentUserData.userName.toString() ??
-                                  "Michael Lurk ",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 32.sp,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            22.h.heightBox,
-                            Text(
-                              "Today I've amazing moment, when I went to my office, I found my old watch in the ...",
-                              softWrap: true,
-                              style: TextStyle(
-                                  fontSize: 14.sp, color: Color(0xff6C6C6C)),
-                            ),
-                            19.h.heightBox,
-
-                            20.h.heightBox,
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  height: 31.h,
-                                  width: 100.w,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(60.r))),
-                                  child: Center(
-                                    child: Text(
-                                      "MESSAGE",
-                                      style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  height: 31.h,
-                                  width: 100.w,
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          begin: Alignment.centerLeft,
-                                          end: Alignment.centerRight,
-                                          colors: ConstColors.btnColor),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(60.r))),
-                                  child: Center(
-                                    child: Text(
-                                      "FOLLOW",
-                                      style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  height: 31.h,
-                                  width: 100.w,
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          begin: Alignment.centerLeft,
-                                          end: Alignment.centerRight,
-                                          colors: ConstColors.btnColor),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(60.r))),
-                                  child: Center(
-                                    child: Text(
-                                      "Subscribe",
-                                      style: TextStyle(
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            27.h.heightBox,
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                followingdetials("Followers", "682"),
-                                20.w.widthBox,
-                                followingdetials("Following", "20k"),
-                                20.w.widthBox,
-                                followingdetials("Posts", "200"),
-                                20.w.widthBox,
-                                followingdetials("Subscribers", "200"),
-                              ],
-                            ),
-
-                            23.h.heightBox,
-
-                            Divider(),
-
-                            20.h.heightBox,
-
-                            Text(
-                              "Related Tagg",
-                              style: TextStyle(
-                                  fontSize: 16.sp, fontWeight: FontWeight.w600),
-                            ),
-
-                            16.h.heightBox,
-
-                            // GridView.count(
-
-                            //     physics: ScrollPhysics(),
-
-                            //     childAspectRatio: (99.w / 31.h),
-
-                            //     crossAxisCount: 3,
-
-                            //     mainAxisSpacing: 15,
-
-                            //     crossAxisSpacing: 15,
-
-                            //     shrinkWrap: true,
-
-                            //     scrollDirection: Axis.vertical,
-
-                            //     children: List.generate(6, (index) {
-
-                            //       return suggestContainer("Language");
-
-                            //     })),
-
-                            Row(
-                              children: [
-                                suggestContainer("Language"),
-                                suggestContainer("Language"),
-                              ],
-                            ),
-
-                            20.h.heightBox,
-
-                            Divider(),
-
-                            20.h.heightBox,
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    controller.isfeed(false);
-                                  },
-                                  child: Container(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Feed",
-                                          style: TextStyle(
-                                              // color: Color(0xffA7A7A7),
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w600),
+                              116.w.widthBox,
+                              GestureDetector(
+                                onTap: () {
+                                  controller.isfeed(true);
+                                },
+                                child: Container(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "AI",
+                                        style: TextStyle(
+                                            // color: Color(0xffA7A7A7),
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      4.h.heightBox,
+                                      if (controller.aiProfiledata == true)
+                                        Container(
+                                          height: 3.h,
+                                          width: 15.w,
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  begin: Alignment.centerLeft,
+                                                  end: Alignment.centerRight,
+                                                  colors: ConstColors.btnColor),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(11))),
                                         ),
-                                        4.h.heightBox,
-                                        if (controller.aiProfiledata == false)
-                                          Container(
-                                            height: 3.h,
-                                            width: 37.w,
-                                            decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                    begin: Alignment.centerLeft,
-                                                    end: Alignment.centerRight,
-                                                    colors:
-                                                        ConstColors.btnColor),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(11))),
-                                          ),
-                                        30.h.heightBox,
-                                      ],
-                                    ),
+                                      30.h.heightBox,
+                                    ],
                                   ),
                                 ),
-                                116.w.widthBox,
-                                GestureDetector(
-                                  onTap: () {
-                                    controller.isfeed(true);
-                                  },
-                                  child: Container(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "AI",
-                                          style: TextStyle(
-                                              // color: Color(0xffA7A7A7),
-                                              fontSize: 16.sp,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        4.h.heightBox,
-                                        if (controller.aiProfiledata == true)
-                                          Container(
-                                            height: 3.h,
-                                            width: 15.w,
-                                            decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                    begin: Alignment.centerLeft,
-                                                    end: Alignment.centerRight,
-                                                    colors:
-                                                        ConstColors.btnColor),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(11))),
-                                          ),
-                                        30.h.heightBox,
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            //////////////////////////////////////////
-                            if (controller.aiProfiledata == false)
-                              feedContainer(),
+                              )
+                            ],
+                          ),
+                          //////////////////////////////////////////
+                          if (controller.aiProfiledata == false)
+                            feedContainer(),
 
-                            if (controller.aiProfiledata == true) aipost(),
-                            20.h.heightBox,
-                          ],
-                        ),
+                          if (controller.aiProfiledata == true) aipost(),
+                          20.h.heightBox,
+                        ],
                       ),
-                    ],
-                  ),
-                );
-              });
-        }));
+                    ),
+                  ],
+                ),
+              );
+            }));
   }
 
   Container aipost() {

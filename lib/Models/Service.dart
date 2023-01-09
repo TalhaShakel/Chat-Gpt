@@ -11,14 +11,28 @@ import 'package:spoot_light/Models/UserModels.dart';
 var fAuth = FirebaseAuth.instance;
 
 firestore_set(collection, doc, set) async {
-  doc != null
-      ? await FirebaseFirestore.instance
-          .collection(collection.toString())
-          .doc(doc.toString())
-          .set(set)
-      : await FirebaseFirestore.instance
-          .collection(collection.toString())
-          .add(set);
+  try {
+    EasyLoading.show();
+    doc != null
+        ? await FirebaseFirestore.instance
+            .collection(collection.toString())
+            .doc(doc.toString())
+            .set(set)
+        : await FirebaseFirestore.instance
+            .collection(collection.toString())
+            .add(set);
+    EasyLoading.dismiss();
+  } on FirebaseException catch (e) {
+    EasyLoading.dismiss();
+
+    Get.snackbar("${e.message}", "");
+    print(e);
+  } catch (e) {
+    EasyLoading.dismiss();
+
+    print(e);
+    Get.snackbar("${e}", "");
+  }
 }
 
 firestore_update(collection, doc, data) async {

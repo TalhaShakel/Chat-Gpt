@@ -87,11 +87,16 @@ class HomeScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      "I want to do nothing."
-                          .text
-                          .size(18.sp)
-                          .fontWeight(FontWeight.w500)
-                          .make(),
+                      GestureDetector(
+                        onTap: () {
+                          Get.bottomSheet(MemorySheet());
+                        },
+                        child: "I want to do nothing."
+                            .text
+                            .size(18.sp)
+                            .fontWeight(FontWeight.w500)
+                            .make(),
+                      ),
                       Container(
                           width: 94.w,
                           height: 12,
@@ -102,7 +107,6 @@ class HomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // Get.bottomSheet(bottomSheetScreen());
-                      Get.bottomSheet(MemorySheet());
                     },
                     child: Container(
                         height: 25.h,

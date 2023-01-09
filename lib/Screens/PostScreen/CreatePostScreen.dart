@@ -156,7 +156,8 @@ class CreatePostScreen extends StatelessWidget {
                       ),
                     ),
 
-                    152.h.heightBox,
+                    // 152.h.heightBox,
+                    Spacer(),
                     GestureDetector(
                       onTap: () {
                         // Get.to(() => CreateAudioRoom1());
@@ -183,8 +184,8 @@ class CreatePostScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // 154.h.heightBox,
-                    Spacer(),
+                    20.h.heightBox,
+                    // Spacer(),
                   ],
                 ),
               )),
