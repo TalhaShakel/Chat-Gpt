@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            home: PickTopicScreen(),
+            home: SplashScrren(),
             debugShowCheckedModeBanner: false,
           );
         });

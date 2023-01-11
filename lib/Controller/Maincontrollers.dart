@@ -79,13 +79,13 @@ class MainController extends GetxController {
             'https://api.openai.com/v1/engines/text-davinci-002/completions'),
         headers: {
           'Authorization':
-              'Bearer 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',
+              'Bearer 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',
           'Content-Type': 'application/json'
         },
         body: jsonEncode({
           "prompt": prompt,
           "max_tokens": 2048,
-          "temperature": 0.5,
+          "temperature": 1,
         }),
       );
 

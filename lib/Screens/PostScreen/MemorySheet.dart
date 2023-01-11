@@ -46,6 +46,8 @@ class MemorySheet extends StatelessWidget {
             20.h.heightBox,
             GestureDetector(
                 onTap: () {
+                  // Get.close(1);
+
                   Get.to(() => CreatePostScreen());
                 },
                 child: _sheetContainer(Icon(Icons.edit), "Create a post")),

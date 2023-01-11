@@ -140,6 +140,11 @@ uploadImageToStorage(PickedFile? pickedFile1) async {
     }
 
     EasyLoading.dismiss();
+  } on FirebaseException catch (e) {
+    EasyLoading.dismiss();
+
+    Get.snackbar("${e.message}", "");
+    print(e);
   } catch (e) {
     print(e);
     EasyLoading.dismiss();
@@ -167,6 +172,11 @@ chooseImage(
       return pickedFile;
     }
     EasyLoading.dismiss();
+  } on FirebaseException catch (e) {
+    EasyLoading.dismiss();
+
+    Get.snackbar("${e.message}", "");
+    print(e);
   } catch (e) {
     EasyLoading.dismiss();
 

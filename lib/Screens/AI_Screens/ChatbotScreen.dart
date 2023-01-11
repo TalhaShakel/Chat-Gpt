@@ -173,7 +173,7 @@ class ChatBotScreen extends StatelessWidget {
                               219.h.heightBox,
                             ],
                           ),
-      
+
                     // Text(_.res.toString()),
                     // /////////////////////////////
                     // Column(
@@ -216,11 +216,11 @@ class ChatBotScreen extends StatelessWidget {
                     //     )
                     //   ],
                     // ),
-      
-      /////////////////////////////////
-      
+
+                    /////////////////////////////////
+
                     Container(
-                      height: 41.h,
+                      // height: 41.h,
                       width: 350.w,
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.white),
@@ -231,12 +231,10 @@ class ChatBotScreen extends StatelessWidget {
                           SizedBox(
                             width: 150.w,
                             child: TextFormField(
-                              // controller: ,
-                              onFieldSubmitted: (prompt) {
-                                _.post(prompt);
-                              },
-                              style:
-                                  TextStyle(fontSize: 12.sp, color: Colors.white),
+                              controller: _searchController,
+                              onFieldSubmitted: (prompt) {},
+                              style: TextStyle(
+                                  fontSize: 12.sp, color: Colors.white),
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   contentPadding: EdgeInsets.all(12),
@@ -247,6 +245,12 @@ class ChatBotScreen extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               // Get.to(() => WalletScreen());
+                              _
+                                  .post(
+                                      _searchController.text.trim().toString())
+                                  .then((val) {
+                                _searchController.clear();
+                              });
                             },
                             child: Container(
                               height: 41.h,
@@ -285,7 +289,7 @@ class ChatBotScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    20.h.heightBox,
+                    // 20.h.heightBox,
                   ],
                 );
               }),
