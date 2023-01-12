@@ -7,6 +7,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:spoot_light/Models/UserModels.dart';
+import 'package:uuid/uuid.dart';
 
 var fAuth = FirebaseAuth.instance;
 var _firestore = FirebaseFirestore.instance;
@@ -223,6 +224,42 @@ Future<String> likePost(String postId, String uid, List likes) async {
   } catch (err) {
     EasyLoading.dismiss();
 
+    res = err.toString();
+  }
+  return res;
+}
+
+sendFuncPostComment(String postId, String text, String uid, String name,
+    String profilePic) async {
+  String res = "Some error occurred";
+  try {
+    EasyLoading.show();
+    if (text.isNotEmpty) {
+      // if the likes list contains the user uid, we need to remove it
+      String commentId = const Uuid().v1();
+      _firestore
+          .collection('posts')
+          .doc(postId)
+          .collection('comments')
+          .doc(commentId)
+          .set({
+        'profilePic': profilePic,
+        'name': name,
+        'uid': uid,
+        'text': text,
+        'commentId': commentId,
+        'datePublished': DateTime.now(),
+      });
+      res = 'success';
+      EasyLoading.dismiss();
+    } else {
+      res = "Please enter text";
+    }
+  } on FirebaseException catch (err) {
+    EasyLoading.dismiss();
+
+    res = err.message.toString();
+  } catch (err) {
     res = err.toString();
   }
   return res;

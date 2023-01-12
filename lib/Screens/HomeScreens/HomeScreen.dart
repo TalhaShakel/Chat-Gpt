@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:spoot_light/Constants/ColorConstants.dart';
 import 'package:spoot_light/Models/Service.dart';
+import 'package:spoot_light/Screens/Comments/Comments.dart';
 import 'package:spoot_light/Screens/HomeScreens/DrawerScreen.dart';
 import 'package:spoot_light/Screens/HomeScreens/HomebottomSheet.dart';
 import 'package:spoot_light/Screens/PostScreen/MemorySheet.dart';
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.black),
           ),
           Text(
-            "John",
+            "${currentUserData.userName}",
             style: TextStyle(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
@@ -86,7 +87,13 @@ class HomeScreen extends StatelessWidget {
                   Container(
                     height: 45.h,
                     width: 44.w,
-                    child: Image.asset("assets/pp.png"),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        currentUserData.userPicture.toString(),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -258,9 +265,12 @@ class Postcard extends StatelessWidget {
               Container(
                 height: 37.h,
                 width: 34.w,
-                child: Image.network(
-                  snap["profImage"].toString(),
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    snap["profImage"].toString(),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               11.w.widthBox,
@@ -361,13 +371,20 @@ class Postcard extends StatelessWidget {
                       //   color: Color(0xff6B6D7D),
                       //   size: 20,
                       // ),
-                      Container(
-                          height: 15.h,
-                          width: 15.w,
-                          child: Image.asset(
-                            "assets/ms.png",
-                            color: ConstColors.IconColor,
-                          )),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => PostCommentsScreen(
+                                postId: snap['postId'].toString(),
+                              ));
+                        },
+                        child: Container(
+                            height: 15.h,
+                            width: 15.w,
+                            child: Image.asset(
+                              "assets/ms.png",
+                              color: ConstColors.IconColor,
+                            )),
+                      ),
 
                       5.w.widthBox,
                       Text(
