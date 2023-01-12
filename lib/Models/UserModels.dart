@@ -8,22 +8,24 @@ class UserModel {
   String? userLanguage;
   String? userGender;
   String? userPicture;
+  List? selectedTopic;
   bool? iscompleted = false;
 
-  UserModel({
-    this.iscompleted,
-    this.uid,
-    this.userEmail,
-    this.userPassword,
-    this.userName,
-    this.userAge,
-    this.userBirthday,
-    this.userLanguage,
-    this.userGender,
-    this.userPicture,
-  });
+  UserModel(
+      {this.iscompleted,
+      this.uid,
+      this.userEmail,
+      this.userPassword,
+      this.userName,
+      this.userAge,
+      this.userBirthday,
+      this.userLanguage,
+      this.userGender,
+      this.userPicture,
+      this.selectedTopic});
 
   UserModel.fromMap(map) {
+    selectedTopic = map["selectedTopic"];
     iscompleted = map["iscompleted"];
     userGender = map["userGender"];
     userEmail = map["userEmail"];
@@ -37,6 +39,7 @@ class UserModel {
   }
   Map<String, dynamic> toMap() {
     return {
+      "selectedTopic": selectedTopic,
       "iscompleted": false,
       "uid": uid,
       "userName": userName,

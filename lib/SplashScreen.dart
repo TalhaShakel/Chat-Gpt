@@ -34,7 +34,8 @@ class _SplashScrrenState extends State<SplashScrren> {
         print(currentUserData.userEmail.toString());
         print(currentUserData.iscompleted);
         if (currentUserData.iscompleted == true)
-          Get.offAll(() => MainHomeScreen());
+          print(currentUserData.selectedTopic);
+        Get.offAll(() => MainHomeScreen());
         if (currentUserData.iscompleted == false)
           Get.offAll(() => AboutUserInfo());
       }

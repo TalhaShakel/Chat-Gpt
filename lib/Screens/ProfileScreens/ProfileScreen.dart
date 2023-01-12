@@ -254,7 +254,8 @@ class ProfileScreen extends StatelessWidget {
 
                           Row(
                             children: [
-                              suggestContainer("Language"),
+                              suggestContainer(
+                                  "${currentUserData.selectedTopic}"),
                               suggestContainer("Language"),
                             ],
                           ),
@@ -351,7 +352,7 @@ class ProfileScreen extends StatelessWidget {
               );
             }));
   }
-  
+
   Container aipost() {
     return Container(
       height: 132.h,
