@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:spoot_light/Models/UserModels.dart';
 
 var fAuth = FirebaseAuth.instance;
+var _firestore = FirebaseFirestore.instance;
 
 firestore_set(collection, doc, set) async {
   try {
@@ -197,3 +198,32 @@ chooseImage(
 //     return userModel;
 //   }
 var currentUserData = UserModel();
+
+Future<String> likePost(String postId, String uid, List likes) async {
+  String res = "Some error occurred";
+  try {
+    EasyLoading.show();
+    if (likes.contains(uid)) {
+      // if the likes list contains the user uid, we need to remove it
+      await _firestore.collection('posts').doc(postId).update({
+        'likes': FieldValue.arrayRemove([uid])
+      });
+    } else {
+      // else we need to add uid to the likes array
+      await _firestore.collection('posts').doc(postId).update({
+        'likes': FieldValue.arrayUnion([uid])
+      });
+    }
+    res = 'success';
+    EasyLoading.dismiss();
+  } on FirebaseException catch (err) {
+    EasyLoading.dismiss();
+
+    res = err.message.toString();
+  } catch (err) {
+    EasyLoading.dismiss();
+
+    res = err.toString();
+  }
+  return res;
+}
